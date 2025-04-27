@@ -1,74 +1,64 @@
-/* General Styles */
-body, html, .app {
+
+*{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Staatliches', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 50px 5%;
   font-family: 'Staatliches', sans-serif;
   scroll-behavior: smooth;
 }
 
-/* About Section */
-.about-section {
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  padding: 40px 60px;
-  box-sizing: border-box;
-  width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* About Box */
-.about-box {
+.top-container {
   background-color: #20232D;
   border-radius: 30px;
-  padding: 40px;
-  width: 100%;
-  max-width: 2500px;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
+  height: 90vh;
   position: relative;
 }
 
 /* Header Styling */
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #20232D;
+  border-radius: 20px;
+  padding: 25px 5%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #20232D;
-  padding: 10px 20px;
-  width: 100%;
-  position: relative; /* Header will be positioned relatively initially */
-  transition: position 0.3s ease, top 0.3s ease; /* Smooth transition for sticky behavior */
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
+/* When sticky */
 .header.sticky {
-  position: fixed; /* Become fixed when sticky */
-  top: 0; /* Stick to the top */
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Make sure it stays on top of other elements */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow when it sticks */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: #20232D;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1000;
 }
 
-/* Logo Styling */
 .logo {
-  font-size: 35px;
+  font-size: 38px;
   color: #ffffff;
   letter-spacing: 2px;
-}
-
-/* Navbar Styling */
-.navbar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-grow: 1;
-  margin-left: auto; /* Push navbar to the right */
-  margin-right: 20px; /* Add some space on the right */
-  width: 50%;
+  text-decoration: none;
+  font-weight: 700;
+  flex: 1;
 }
 
 .navbar a {
@@ -76,31 +66,82 @@ body, html, .app {
   text-decoration: none;
   color: #ffffff;
   font-size: 22px;
-  transition: color 0.3s;
+  border-bottom: 2px solid transparent;
+  transition: 0.5s;
+  font-weight: 500;
 }
 
 .navbar a:hover,
-.navbar a:active {
+.navbar a.active {
   color: #01ECFF;
 }
 
-/* About Content */
-.about-content {
+.about-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 50px 5% 0;
+  gap: 50px;
   color: #ffffff;
-  text-align: left;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;  
 }
 
-.about-content h2 {
-  font-size: 48px;
-  margin-bottom: 20px;
+.about-content h1{
+  font-size: 55px;
+  line-height: 1;
 }
 
-.about-content p {
+.about-content h2{
+  font-size: 32px;
+}
+
+.about-content p{
+  margin: 10px 0 20px;
+}
+
+.about-content .download-social{
+  display: flex;
+  align-items: center;
+}
+
+.btn-download-resume{
+  display: inline-block;
+  padding: 10px 30px;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 0 10px #ffffff;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.btn-download-resume:hover{
+  background: none;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.about-content .social-icons{
+  margin-left: 20px;
+}
+
+.about-content .social-icons a{
+  display: inline-flex;
+  padding: 8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
   font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: .5s;
+}
+
+.about-content .social-icons a:hover{
+  background: #ffffff;
+  color: #20232D;
+  box-shadow: 0 0 10px #ffffff;
 }
 
 /* About Image */
@@ -114,12 +155,5 @@ body, html, .app {
   overflow: hidden;
   position: relative;
   border-radius: 30px;
-  transition: transform 0.3s ease;  
-}
-
-.profile-photo {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
