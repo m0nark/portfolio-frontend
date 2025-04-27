@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+/* General Styles */
+body, html, .app {
+  margin: 0;
+  padding: 0;
+  font-family: 'Staatliches', sans-serif;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* About Section */
+.about-section {
+  background-color: #ffffff;
   display: flex;
+  justify-content: center;
+  padding: 40px 60px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* About Box */
+.about-box {
+  background-color: #20232D;
+  border-radius: 30px;
+  padding: 40px;
+  width: 100%;
+  max-width: 2500px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #20232D;
+  padding: 10px 20px;
+  width: 100%;
+  position: relative; /* Header will be positioned relatively initially */
+  transition: position 0.3s ease, top 0.3s ease; /* Smooth transition for sticky behavior */
+}
+
+.header.sticky {
+  position: fixed; /* Become fixed when sticky */
+  top: 0; /* Stick to the top */
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Make sure it stays on top of other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow when it sticks */
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 35px;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: auto; /* Push navbar to the right */
+  margin-right: 20px; /* Add some space on the right */
+  width: 50%;
+}
+
+.navbar a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:active {
+  color: #01ECFF;
+}
+
+/* About Content */
+.about-content {
+  color: #ffffff;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;  
+}
+
+.about-content h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 20px;
+}
+
+/* About Image */
+.about-img {
+  flex: 1;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+  transition: transform 0.3s ease;  
+}
+
+.profile-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
 }
