@@ -4,7 +4,6 @@ import image from "./images/myself.png";
 import Typed from "typed.js";
 
 function App() {
-    const [menuOpen, setMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
 
     // Function to handle scroll event
@@ -43,19 +42,36 @@ function App() {
         };
     }, []);
 
+    const [scrollY, setScrollY] = useState(0);
+
+    const handleScroll2 = () => {
+        setScrollY(window.scrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll2);
+        return () => window.removeEventListener('scroll', handleScroll2);
+    }, []);
+
     return (
         <div className="app">
-            <div className="top-container">
-                <header className={`header ${isSticky ? "sticky" : ""}`}>
-                    <a href="#" className="logo">Portfolio</a>
-                    <nav className={`navbar ${menuOpen ? "open" : ""}`}>
-                        <a href="#about"  className="active">About</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#contact">Contact</a>
-                    </nav>
-                </header>
+            <header className={`header ${isSticky ? "sticky" : ""}`}>
+                <a href="#" className="logo">Portfolio</a>
+                <nav className="navbar">
+                    <a href="#about" className="active">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </header>
+            <div
+                className="top-container"
+                style={{
+                    opacity: Math.max(1 - scrollY / 400, 0),
+                    transform: `translateY(-${scrollY / 5}px)`,
+                }}
+            >
                 <section id="about" className="about-section">
                     <div className="about-content">
                         <h2>Hello, I'm</h2>
@@ -64,10 +80,10 @@ function App() {
                         <div className="download-social">
                             <a href="#" className="btn-download-resume">Download Resume</a>
                             <div className="social-icons">
-                                <a href="#"><i className="ri-github-fill"></i></a>
-                                <a href="#"><i className="ri-instagram-fill"></i></a>
-                                <a href="#"><i className="ri-facebook-fill"></i></a>
-                                <a href="#"><i className="ri-linkedin-box-fill"></i></a>
+                                <a href="https://github.com/m0nark" target="_blank" rel="noopener noreferrer"><i className="ri-github-fill"></i></a>
+                                <a href="https://www.instagram.com/m0nark.xd/" target="_blank" rel="noopener noreferrer"><i className="ri-instagram-fill"></i></a>
+                                <a href="https://www.facebook.com/aaditiscool" target="_blank" rel="noopener noreferrer"><i className="ri-facebook-fill"></i></a>
+                                <a href="https://www.linkedin.com/in/aadit31/" target="_blank" rel="noopener noreferrer"><i className="ri-linkedin-box-fill"></i></a>
                             </div>
                         </div>
                     </div>
@@ -79,12 +95,14 @@ function App() {
             </div>
 
             {/* Other sections */}
-            <section id="projects" className="section projects-section">
-                <div className="section-content">
-                    <h2>Projects</h2>
-                    <p>This is the projects section.</p>
-                </div>
-            </section>
+            <div className="projects-container">
+                <section id="projects" className="section projects-section">
+                    <div className="section-content">
+                        <h2>Projects</h2>
+                        <p>This is the projects section.</p>
+                    </div>
+                </section>
+            </div>
 
             <section id="skills" className="section skills-section">
                 <div className="section-content">

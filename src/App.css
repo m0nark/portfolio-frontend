@@ -19,37 +19,31 @@ body {
   border-radius: 30px;
   height: 93vh;
   position: relative;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-bottom: 10vh;
 }
 
-/* Header Styling */
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
+  top: 5px;  /* Adjusted to shift the header upwards */
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #20232D;
   border-radius: 20px;
-  padding: 25px 5%;
-  width: 100%;
+  padding: 20px 5%;
+  width: 90%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
-}
-
-/* When sticky */
-.header.sticky {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  background-color: #20232D;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 1200px;
   z-index: 1000;
 }
+
+.header.sticky {
+  top: 10px; 
+}
+
 
 .logo {
   font-size: 38px;
