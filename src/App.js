@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import image from "./images/myself.png";
+import Typed from "typed.js";
 
 function App() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -26,13 +27,29 @@ function App() {
         };
     }, []);
 
+    const el = useRef(null);
+
+    useEffect(() => {
+        const typed = new Typed(el.current, {
+            strings: ["Software Engineer", "Gamer", "Home chef", "Gardener"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+
+        return () => {
+            typed.destroy();
+        };
+    }, []);
+
     return (
         <div className="app">
             <div className="top-container">
                 <header className={`header ${isSticky ? "sticky" : ""}`}>
                     <a href="#" className="logo">Portfolio</a>
                     <nav className={`navbar ${menuOpen ? "open" : ""}`}>
-                        <a href="#about" className="active">About</a>
+                        <a href="#about"  className="active">About</a>
                         <a href="#projects">Projects</a>
                         <a href="#skills">Skills</a>
                         <a href="#experience">Experience</a>
@@ -41,10 +58,9 @@ function App() {
                 </header>
                 <section id="about" className="about-section">
                     <div className="about-content">
-                        <h3>Hello, I'm</h3>
+                        <h2>Hello, I'm</h2>
                         <h1>Aadit Jain</h1>
-                        <h3>And I'm a <span>Gamer</span></h3>
-                        <p>This is the about me section where you can introduce yourself!</p>
+                        <h2>And I'm a <span ref={el}></span></h2>
                         <div className="download-social">
                             <a href="#" className="btn-download-resume">Download Resume</a>
                             <div className="social-icons">
