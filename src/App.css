@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Staatliches', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,7 +14,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* About Box */
 .top-container {
   background-color: #20232D;
   border-radius: 30px;
@@ -25,7 +25,7 @@ body {
 
 .header {
   position: fixed;
-  top: 5px;  /* Adjusted to shift the header upwards */
+  top: 5px; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #20232D;
@@ -39,11 +39,6 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
-
-.header.sticky {
-  top: 10px; 
-}
-
 
 .logo {
   font-size: 38px;
@@ -88,6 +83,7 @@ body {
   font-size: 105px;
   line-height: 1;
   opacity: 0;
+  letter-spacing: 0.04em;
   animation: slideRight 1s ease forwards;
   animation-delay: 1s;
 }
@@ -95,6 +91,7 @@ body {
 .about-content h2{
   font-size: 52px;
   opacity: 0;
+  letter-spacing: 0.03em;
   animation: slideBottom 1s ease forwards;
   animation-delay: 1s;
 }
@@ -155,6 +152,10 @@ body {
   box-shadow: 0 0 10px #ffffff;
 }
 
+section {
+  scroll-margin-top: 120px;
+}
+
 /* About Image */
 .about-img {
   flex: 1;
@@ -193,6 +194,65 @@ body {
   opacity: 0;
   animation: zoomIn 1s ease forwards;
   animation-delay: 1.6s;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #20232D;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  z-index: 9999;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.loading-overlay.fade-out {
+  opacity: 0;
+  transform: scale(1.20); /* subtle zoom for sleekness */
+  pointer-events: none;
+}
+
+.loading-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  font-size: 3rem; /* Adjusted for appropriate text size */
+}
+
+.app {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.app.fade-in {
+  opacity: 1;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid #61dafb; /* React blue or any accent color */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px; /* Adjust this for spacing */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes slideTop {

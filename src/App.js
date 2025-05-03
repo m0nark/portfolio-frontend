@@ -4,43 +4,64 @@ import image from "./images/myself.png";
 import Typed from "typed.js";
 
 function App() {
-    const [isSticky, setIsSticky] = useState(false);
 
-    // Function to handle scroll event
-    const handleScroll = () => {
-        const header = document.querySelector(".header");
-        if (window.scrollY > header.offsetTop) {
-            setIsSticky(true); // Make header sticky
-        } else {
-            setIsSticky(false); // Remove sticky when not scrolled
-        }
-    };
+    
+    const [isVerified, setIsVerified] = useState(null);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [isReady, setIsReady] = useState(false);
+    const [fadeOut, setFadeOut] = useState(false); 
 
-    // Use useEffect to add event listener for scroll
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        // Cleanup on component unmount
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        fetch("https://api.aaditjain.in/api/v1/visitor/log", {
+            method: "PUT",
+        })
+            .then(async (res) => {
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(data.message || `API error: ${res.status}`);
+                }
+                setIsVerified(true);  
+                console.log("API call successful, isVerified set to true");
+            })
+            .catch((err) => {
+                console.error("API Error:", err); 
+                setErrorMsg(err.message);  
+                setIsVerified(false);  
+                console.log("API Error: Setting isVerified to false");
+            });
     }, []);
+
+    useEffect(() => {
+        if (isVerified) {
+            const showDelay = setTimeout(() => {
+                setFadeOut(true); 
+    
+                const fadeDuration = setTimeout(() => {
+                    setIsReady(true); 
+                }, 1000); 
+    
+                return () => clearTimeout(fadeDuration);
+            }, 1000); 
+    
+            return () => clearTimeout(showDelay);
+        }
+    }, [isVerified]);
 
     const el = useRef(null);
 
     useEffect(() => {
-        const typed = new Typed(el.current, {
-            strings: ["Software Engineer", "Gamer", "Home chef", "Gardener"],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
-            loop: true
-        });
-
-        return () => {
-            typed.destroy();
-        };
-    }, []);
+        if (isVerified === true && isReady && el.current) {
+            const typed = new Typed(el.current, {
+                strings: ["Software Engineer", "Gamer", "Home chef", "Gardener"],
+                typeSpeed: 100,
+                backSpeed: 100,
+                backDelay: 1000,
+                loop: true,
+            });
+    
+            return () => typed.destroy();
+        }
+    }, [isVerified, isReady]);  
 
     const [scrollY, setScrollY] = useState(0);
 
@@ -53,9 +74,24 @@ function App() {
         return () => window.removeEventListener('scroll', handleScroll2);
     }, []);
 
+    if (!isVerified) {
+        return <div>{errorMsg}</div>;
+    }
+
+    if (!isReady) {
+        return (
+            <div className={`loading-overlay ${fadeOut ? 'fade-out' : ''}`}>
+                <div className="loading-text">
+                    <div className="spinner" />
+                    <span>Loading portfolio...</span>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="app">
-            <header className={`header ${isSticky ? "sticky" : ""}`}>
+        <div className={`app ${fadeOut ? 'fade-in' : ''}`}>
+            <header className="header">
                 <a href="#" className="logo">Portfolio</a>
                 <nav className="navbar">
                     <a href="#about" className="active">About</a>
@@ -64,11 +100,11 @@ function App() {
                     <a href="#experience">Experience</a>
                     <a href="#contact">Contact</a>
                 </nav>
-            </header>
+            </header> 
             <div
                 className="top-container"
                 style={{
-                    opacity: Math.max(1 - scrollY / 400, 0),
+                    opacity: Math.max(1 - scrollY / 550, 0),
                     transform: `translateY(-${scrollY / 5}px)`,
                 }}
             >
