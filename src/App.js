@@ -2,14 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import image from "./images/myself.png";
 import Typed from "typed.js";
+import InstagramFeed from "./components/InstagramFeed";
+import Projects from "./components/Projects";
 
 function App() {
 
-    
+
     const [isVerified, setIsVerified] = useState(null);
     const [errorMsg, setErrorMsg] = useState("");
     const [isReady, setIsReady] = useState(false);
-    const [fadeOut, setFadeOut] = useState(false); 
+    const [fadeOut, setFadeOut] = useState(false);
 
     useEffect(() => {
         fetch("https://api.aaditjain.in/api/v1/visitor/log", {
@@ -20,29 +22,27 @@ function App() {
                 if (!res.ok) {
                     throw new Error(data.message || `API error: ${res.status}`);
                 }
-                setIsVerified(true);  
-                console.log("API call successful, isVerified set to true");
+                setIsVerified(true);
             })
             .catch((err) => {
-                console.error("API Error:", err); 
-                setErrorMsg(err.message);  
-                setIsVerified(false);  
-                console.log("API Error: Setting isVerified to false");
+                console.error("API Error:", err);
+                setErrorMsg(err.message);
+                setIsVerified(false);
             });
     }, []);
 
     useEffect(() => {
         if (isVerified) {
             const showDelay = setTimeout(() => {
-                setFadeOut(true); 
-    
+                setFadeOut(true);
+
                 const fadeDuration = setTimeout(() => {
-                    setIsReady(true); 
-                }, 1000); 
-    
+                    setIsReady(true);
+                }, 1000);
+
                 return () => clearTimeout(fadeDuration);
-            }, 1000); 
-    
+            }, 1000);
+
             return () => clearTimeout(showDelay);
         }
     }, [isVerified]);
@@ -58,10 +58,10 @@ function App() {
                 backDelay: 1000,
                 loop: true,
             });
-    
+
             return () => typed.destroy();
         }
-    }, [isVerified, isReady]);  
+    }, [isVerified, isReady]);
 
     const [scrollY, setScrollY] = useState(0);
 
@@ -74,16 +74,22 @@ function App() {
         return () => window.removeEventListener('scroll', handleScroll2);
     }, []);
 
-    if (!isVerified) {
-        return <div>{errorMsg}</div>;
+    if (isVerified === false) {
+        return (
+            <div className="error-screen">
+                <p>{errorMsg || "An error occurred while verifying you."}</p>
+                <button onClick={() => window.location.reload()}>Retry</button>
+            </div>
+        );
     }
 
-    if (!isReady) {
+    if (!isReady || isVerified === null) {
         return (
             <div className={`loading-overlay ${fadeOut ? 'fade-out' : ''}`}>
                 <div className="loading-text">
                     <div className="spinner" />
                     <span>Loading portfolio...</span>
+                    <span>Sometimes it might take 30-40 seconds for the website to load</span>
                 </div>
             </div>
         );
@@ -92,7 +98,7 @@ function App() {
     return (
         <div className={`app ${fadeOut ? 'fade-in' : ''}`}>
             <header className="header">
-                <a href="#" className="logo">Portfolio</a>
+                <a href="#about" className="logo">Portfolio</a>
                 <nav className="navbar">
                     <a href="#about" className="active">About</a>
                     <a href="#projects">Projects</a>
@@ -100,11 +106,11 @@ function App() {
                     <a href="#experience">Experience</a>
                     <a href="#contact">Contact</a>
                 </nav>
-            </header> 
+            </header>
             <div
                 className="top-container"
                 style={{
-                    opacity: Math.max(1 - scrollY / 550, 0),
+                    opacity: Math.max(1 - scrollY / 800, 0),
                     transform: `translateY(-${scrollY / 5}px)`,
                 }}
             >
@@ -131,14 +137,9 @@ function App() {
             </div>
 
             {/* Other sections */}
-            <div className="projects-container">
-                <section id="projects" className="section projects-section">
-                    <div className="section-content">
-                        <h2>Projects</h2>
-                        <p>This is the projects section.</p>
-                    </div>
-                </section>
-            </div>
+            <section id="projects">
+                <Projects />
+            </section> 
 
             <section id="skills" className="section skills-section">
                 <div className="section-content">

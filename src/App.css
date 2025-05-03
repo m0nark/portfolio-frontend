@@ -74,13 +74,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding: 50px 5% 0;
-  gap: 200px;
+  padding: 50px 10% 0;
+  gap: 10px;
   color: #ffffff;
 }
 
 .about-content h1{
-  font-size: 105px;
+  font-size:8em;
   line-height: 1;
   opacity: 0;
   letter-spacing: 0.04em;
@@ -109,6 +109,10 @@ body {
 .about-content .download-social{
   display: flex;
   align-items: center;
+}
+
+#projects {
+  scroll-margin-top: 100px;
 }
 
 .btn-download-resume{
@@ -150,10 +154,6 @@ body {
   background: #ffffff;
   color: #20232D;
   box-shadow: 0 0 10px #ffffff;
-}
-
-section {
-  scroll-margin-top: 120px;
 }
 
 /* About Image */
