@@ -1,0 +1,127 @@
+
+.skills-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: #1c1f26;
+    color: white;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-top: 200px;
+    border-radius: 30px;
+}
+
+.skills-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.skills-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-category-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: aqua;
+    letter-spacing: 0.08em;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: visible;
+}
+
+.skill-item {
+    flex: 1 1 150px;
+    max-width: calc(100% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+    padding: 1rem;
+    background-color: #2a2d38;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: #343843;
+    z-index: 1;
+}
+
+/* Icon size */
+.skill-icon {
+    font-size: 3rem;
+}
+
+/* Skill name styling */
+.skill-name {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+    font-weight: 500;
+    color: #e0e0e0;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+
+    .skills-list {
+        flex-wrap: wrap;
+        /* Allow wrapping on smaller screens */
+        justify-content: space-evenly;
+    }
+
+    .skills-section {
+        padding: 2rem 1rem;
+    }
+
+    .skills-title {
+        font-size: 2.2rem;
+    }
+
+    .skills-category-title {
+        font-size: 1.2rem;
+    }
+
+    .skill-item {
+        min-width: 100px;
+        /* Adjust width for smaller screens */
+        max-width: 120px;
+        /* Maintain consistency */
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.skill-item.animate {
+    animation: fadeInRight 0.6s ease forwards;
+}

@@ -4,6 +4,7 @@ import image from "./images/myself.png";
 import Typed from "typed.js";
 import InstagramFeed from "./components/InstagramFeed";
 import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 
 function App() {
 
@@ -89,7 +90,6 @@ function App() {
                 <div className="loading-text">
                     <div className="spinner" />
                     <span>Loading portfolio...</span>
-                    <span>Sometimes it might take 30-40 seconds for the website to load</span>
                 </div>
             </div>
         );
@@ -102,7 +102,9 @@ function App() {
                 <nav className="navbar">
                     <a href="#about" className="active">About</a>
                     <a href="#projects">Projects</a>
-                    <a href="#skills">Skills</a>
+                    <a href="#skills" className="hover:text-blue-400 transition-colors duration-200">
+                        Skills
+                    </a>
                     <a href="#experience">Experience</a>
                     <a href="#contact">Contact</a>
                 </nav>
@@ -139,13 +141,10 @@ function App() {
             {/* Other sections */}
             <section id="projects">
                 <Projects />
-            </section> 
+            </section>
 
-            <section id="skills" className="section skills-section">
-                <div className="section-content">
-                    <h2>Skills</h2>
-                    <p>This is the skills section.</p>
-                </div>
+            <section id="skills" className="skills-section-outer">
+                <Skills />
             </section>
 
             <section id="experience" className="section experience-section">

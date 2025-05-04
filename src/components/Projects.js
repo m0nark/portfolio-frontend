@@ -23,7 +23,7 @@ const Projects = () => {
 
         const interval = setInterval(() => {
             scrollRight(); // Scroll right by the fixed distance every 3 seconds
-        }, 3000);
+        }, 4000);
 
         return () => clearInterval(interval);
     }, [repos, isPaused]);
@@ -103,43 +103,74 @@ const Projects = () => {
         opacity = 0;
     }
 
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+        card.style.transformStyle = 'preserve-3d';
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -15; // negative flips vertical axis
+            const rotateY = ((x - centerX) / centerX) * 15;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            setIsPaused(false); // Resume auto-scroll on mouse leave
+            card.style.transition = 'transform 0.3s ease';
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+
+        card.addEventListener('mouseenter', () => {
+            setIsPaused(true); // Pause auto-scroll on hover
+            card.style.transition = 'transform 0.1s ease';
+        });
+    });
+
     return (
         <div className="projects-container" style={{
             opacity,
             transform: `translateY(${50 - scrollY / 10}px)`,
             transition: 'opacity 0.3s ease, transform 0.3s ease',
-          }}>
+        }}> 
             <div className="carousel-wrapper">
                 <div className="carousel" ref={carouselRef}>
                     {repos.map((repo) => (
                         <div key={repo.id} className="project-card">
-                        <h3>{repo.name}</h3>
-                      
-                        <div className="project-image-area">
+                            <h3>{repo.name}</h3>
+
+                            <div className="project-image-area">
                                 <img src={repo.imageUrl} alt={`${repo.name} screenshot`} />
                             </div>
-                      
-                        <div className="project-footer">
-                          <p>{repo.description || 'No description available'}</p>
-                          <a
-                            href={repo.htmlUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn-view-repo"
-                          >
-                            View Repo
-                          </a>
+
+                            <div className="project-footer">
+                                <p>{repo.description || 'No description available'}</p>
+                                <a
+                                    href={repo.htmlUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-view-repo"
+                                >
+                                    View Repo
+                                </a>
+                            </div>
                         </div>
-                      </div>
                     ))}
                 </div>
 
                 <div className="carousel-controls">
                     <button className="carousel-button" onClick={scrollLeft} aria-label="Scroll Left">
-                        &lt;
+                    <i class="ri-arrow-left-s-line"></i>
                     </button>
                     <button className="carousel-button" onClick={scrollRight} aria-label="Scroll Right">
-                        &gt;
+                    <i class="ri-arrow-right-s-line"></i>
                     </button>
                 </div>
             </div>
