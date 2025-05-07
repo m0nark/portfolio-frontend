@@ -5,6 +5,7 @@ import Typed from "typed.js";
 import InstagramFeed from "./components/InstagramFeed";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Experience from "./components/Experience";
 
 function App() {
 
@@ -148,10 +149,7 @@ function App() {
             </section>
 
             <section id="experience" className="section experience-section">
-                <div className="section-content">
-                    <h2>Experience</h2>
-                    <p>This is the Experience section.</p>
-                </div>
+                <Experience />
             </section>
 
             <section id="contact" className="section contact-section">

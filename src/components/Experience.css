@@ -1,0 +1,244 @@
+.experience-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 70px 20px 40px 20px; 
+    background: #1C1F26;
+    border-radius: 30px;
+    color: #f8f9fa;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+    position: relative;
+}
+
+.experience-list {
+    position: relative;
+}
+
+.experience-type-section {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.experience-sticky {
+    position: sticky;
+    z-index: 2;
+    top: 120px;
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: flex-start;
+    background: transparent;
+}
+
+.experience-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience-header {
+    margin: 0 auto 32px auto;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f8f9fa;
+    letter-spacing: 0.06em;
+    text-align: center;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -80px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    background: #20232D;
+    border: 0.3em solid #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.timeline-marker i {
+    font-size: 1.2rem;
+    color: #3498db;
+}
+
+.experience-content {
+    position: relative;
+    background: #262a36;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    opacity: 0;
+    margin-bottom: 20px;
+    transform: translateY(20px);
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.experience-content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.experience-content.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.duration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.experience-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.experience-content h3 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.experience-content p {
+    margin: 8px 0;
+    color: #c0c4cc;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.experience-content p:nth-of-type(2) { 
+    color: #3498db;
+    font-weight: 500;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.tech-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(52, 152, 219, 0.15);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    gap: 8px;
+    z-index: 1;
+}
+
+.tech-item i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.tech-item::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3498db;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.location {
+    color: #a0a4b2; 
+    font-style: italic;
+    margin: 4px 0 8px 0;
+    font-size: 0.9rem;
+}
+
+.tech-name {
+    display: none;
+}
+
+.tech-item:hover {
+    transform: translateY(-2px);
+    background: rgba(52, 152, 219, 0.25);
+}
+
+.tech-item:hover .tech-name {
+    color: #fff;
+}
+.tech-item:hover::after {
+    opacity: 1;
+}
+
+
+.tech-name {
+    color: #3498db;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+    .timeline-marker {
+        left: -60px;
+        width: 36px;
+        height: 36px;
+    }
+}
+@media (max-width: 768px) {
+    .experience-container {
+        padding: 20px;
+        margin: 60px auto;
+    }
+    .timeline-marker {
+        left: -40px;
+        width: 32px;
+        height: 32px;
+    }
+    .experience-content {
+        padding: 24px;
+    }
+    .experience-sticky {
+        top: 60px;
+    }
+
+    .tech-name {
+        display: none;
+        color: #3498db;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+}
+@media (max-width: 480px) {
+    .timeline-marker {
+        left: -30px;
+        width: 28px;
+        height: 28px;
+    }
+    .experience-content {
+        padding: 20px;
+    }
+    .experience-content h3 {
+        font-size: 1.2rem;
+    }
+}
