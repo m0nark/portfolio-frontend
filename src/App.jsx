@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import image from "./images/myself.png";
+import Logo from "./images/Logo2.png";
 import Typed from "typed.js";
 import InstagramFeed from "./components/InstagramFeed";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
+import About from "./components/About";
 
 function App() {
 
@@ -48,23 +50,7 @@ function App() {
             return () => clearTimeout(showDelay);
         }
     }, [isVerified]);
-
-    const el = useRef(null);
-
-    useEffect(() => {
-        if (isVerified === true && isReady && el.current) {
-            const typed = new Typed(el.current, {
-                strings: ["Software Engineer", "Gamer", "Home chef", "Gardener"],
-                typeSpeed: 100,
-                backSpeed: 100,
-                backDelay: 1000,
-                loop: true,
-            });
-
-            return () => typed.destroy();
-        }
-    }, [isVerified, isReady]);
-
+    
     const [scrollY, setScrollY] = useState(0);
 
     const handleScroll2 = () => {
@@ -99,7 +85,7 @@ function App() {
     return (
         <div className={`app ${fadeOut ? 'fade-in' : ''}`}>
             <header className="header">
-                <a href="#about" className="logo">Portfolio</a>
+                <a href="#about" className="logo"><img src={Logo} alt="Logo" className="Logo-img" /></a>
                 <nav className="navbar">
                     <a href="#about" className="active">About</a>
                     <a href="#projects">Projects</a>
@@ -110,36 +96,11 @@ function App() {
                     <a href="#contact">Contact</a>
                 </nav>
             </header>
-            <div
-                className="top-container"
-                style={{
-                    opacity: Math.max(1 - scrollY / 800, 0),
-                    transform: `translateY(-${scrollY / 5}px)`,
-                }}
-            >
-                <section id="about" className="about-section">
-                    <div className="about-content">
-                        <h2>Hello, I'm</h2>
-                        <h1>Aadit Jain</h1>
-                        <h2>And I'm a <span ref={el}></span></h2>
-                        <div className="download-social">
-                            <a href="#" className="btn-download-resume">Download Resume</a>
-                            <div className="social-icons">
-                                <a href="https://github.com/m0nark" target="_blank" rel="noopener noreferrer"><i className="ri-github-fill"></i></a>
-                                <a href="https://www.instagram.com/m0nark.xd/" target="_blank" rel="noopener noreferrer"><i className="ri-instagram-fill"></i></a>
-                                <a href="https://www.facebook.com/aaditiscool" target="_blank" rel="noopener noreferrer"><i className="ri-facebook-fill"></i></a>
-                                <a href="https://www.linkedin.com/in/aadit31/" target="_blank" rel="noopener noreferrer"><i className="ri-linkedin-box-fill"></i></a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div className="about-img">
-                        <img src={image} alt="Myself" className="profile-photo" />
-                    </div>
-                </section>
-            </div>
+            <section id="about">
+                <About scrollY={scrollY} />
+            </section>
 
-            {/* Other sections */}
             <section id="projects">
                 <Projects />
             </section>

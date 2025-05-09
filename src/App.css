@@ -1,5 +1,6 @@
+/* App.css - Global and layout styles only */
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,15 +15,6 @@ body {
   scroll-behavior: smooth;
 }
 
-.top-container {
-  background-color: #20232D;
-  border-radius: 30px;
-  height: 93vh;
-  position: relative;
-  transition: opacity 0.2s, transform 0.2s;
-  margin-bottom: 10vh;
-}
-
 .header {
   position: fixed;
   top: 5px; 
@@ -30,13 +22,13 @@ body {
   transform: translateX(-50%);
   background-color: #20232D;
   border-radius: 20px;
-  padding: 20px 5%;
+  padding: 10px 3%;
   width: 90%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 225, 255, 0.3);
   z-index: 1000;
 }
 
@@ -49,6 +41,11 @@ body {
   flex: 1;
   opacity: 0;
   animation: slideRight 1s ease forwards;
+}
+
+.Logo-img {
+  width: 60px;
+  height: auto;
 }
 
 .navbar a {
@@ -67,134 +64,13 @@ body {
   color: #01ECFF;
 }
 
-.about-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 50px 10% 0;
-  gap: 10px;
-  color: #ffffff;
+section {
+  scroll-margin-top: 100px; 
 }
 
-.about-content h1{
-  font-size:8em;
-  line-height: 1;
-  opacity: 0;
-  letter-spacing: 0.04em;
-  animation: slideRight 1s ease forwards;
-  animation-delay: 1s;
+.skills-section-outer {
+  scroll-margin-top: 200px; 
 }
-
-.about-content h2{
-  font-size: 52px;
-  opacity: 0;
-  letter-spacing: 0.03em;
-  animation: slideBottom 1s ease forwards;
-  animation-delay: 1s;
-}
-
-.about-content h2:nth-of-type(2){
-  margin-bottom: 30px;
-  animation: slideTop 1s ease forwards;
-  animation-delay: 0.7s;
-}
-
-.about-content p{
-  margin: 10px 0 20px;
-}
-
-.about-content .download-social{
-  display: flex;
-  align-items: center;
-}
-
-#projects {
-  scroll-margin-top: 100px;
-}
-
-.btn-download-resume{
-  display: inline-block;
-  padding: 10px 30px;
-  background: #ffffff;
-  border: 2px solid #ffffff;
-  border-radius: 40px;
-  box-shadow: 0 0 10px #ffffff;
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.5s;
-}
-
-.btn-download-resume:hover{
-  background: none;
-  color: #ffffff;
-  box-shadow: none;
-}
-
-.about-content .social-icons{
-  margin-left: 20px;
-}
-
-.about-content .social-icons a{
-  display: inline-flex;
-  padding: 8px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  font-size: 20px;
-  color: #ffffff;
-  text-decoration: none;
-  margin: 0 8px;
-  transition: .5s;
-}
-
-.about-content .social-icons a:hover{
-  background: #ffffff;
-  color: #20232D;
-  box-shadow: 0 0 10px #ffffff;
-}
-
-/* About Image */
-.about-img {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-  position: relative;
-  border-radius: 30px;
-  transition: transform 0.3s ease;
-}
-
-.about-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 100%;
-  max-height: 100%;
-  position: relative;
-  border-radius: 30px;
-  transition: transform 0.3s ease;
-}
-
-.about-content h2 span {
-  color: #01ECFF;
-}
-
-.profile-photo {
-  width: 600px;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 0;
-  animation: zoomIn 1s ease forwards;
-  animation-delay: 1.6s;
-}
-
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -216,7 +92,7 @@ body {
 
 .loading-overlay.fade-out {
   opacity: 0;
-  transform: scale(1.20); /* subtle zoom for sleekness */
+  transform: scale(1.20);
   pointer-events: none;
 }
 
@@ -227,7 +103,7 @@ body {
   justify-content: center;
   color: white;
   text-align: center;
-  font-size: 3rem; /* Adjusted for appropriate text size */
+  font-size: 3rem;
 }
 
 .app {
@@ -241,12 +117,12 @@ body {
 
 .spinner {
   border: 4px solid rgba(255, 255, 255, 0.2);
-  border-top: 4px solid #61dafb; /* React blue or any accent color */
+  border-top: 4px solid #61dafb;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   animation: spin 1s linear infinite;
-  margin-bottom: 20px; /* Adjust this for spacing */
+  margin-bottom: 20px;
 }
 
 @keyframes spin {
@@ -255,49 +131,21 @@ body {
 }
 
 @keyframes slideTop {
-  0% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes slideRight {
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes slideBottom {
-  0% {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes zoomIn {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: svcale(1);
-    opacity: 1;
-  }
-  
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
