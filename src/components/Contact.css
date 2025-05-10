@@ -1,0 +1,144 @@
+.contact-section {
+  padding: 60px 0;
+  background: #20232D;
+  border-radius: 30px;
+  max-width: 1800px;
+  margin: 60px auto;
+  color: #f8f9fa;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+}
+
+.contact-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  letter-spacing: 3px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.contact-form-columns {
+  display: flex;
+  gap: 48px;
+  align-items: stretch;
+}
+
+.contact-form-fields,
+.contact-form-message {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  background: #262A36;
+  padding: 32px 24px;
+  border-radius: 16px;
+  min-width: 0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.input-group label,
+.contact-form-message label {
+  font-size: 1.05rem;
+  color: #01ECFF;
+  letter-spacing: 1px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  font-size: 1.1rem;
+  background: #262a36;
+  color: #fff;
+  outline: none;
+  transition: border 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.contact-form textarea {
+  min-height: 240px;
+  resize: vertical;
+  font-family: inherit;
+  letter-spacing: 0.03em;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1.5px solid #01ECFF;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #01ECFF;
+  margin-bottom: 4px;
+  font-family: inherit;
+  letter-spacing: 1px;
+}
+
+.contact-form button {
+  background: #01ECFF;
+  color: #20232D;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 0;
+  font-size: 1.4em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 22px;
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
+  letter-spacing: 0.03em;
+}
+
+.contact-form button:hover {
+  background: #fff;
+  transform: translateY(-8px);
+}
+
+.contact-form button:disabled {
+  background: #333;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1100px) {
+  .contact-form-columns {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .contact-form-fields,
+  .contact-form-message {
+    padding: 24px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 30px 5px;
+    border-radius: 16px;
+  }
+  .contact-form {
+    gap: 10px;
+  }
+  .contact-form-fields,
+  .contact-form-message {
+    padding: 14px 4px;
+    border-radius: 10px;
+  }
+}

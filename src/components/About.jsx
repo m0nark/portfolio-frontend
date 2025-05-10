@@ -9,7 +9,7 @@ const About = ({ scrollY }) => {
     useEffect(() => {
         if (el.current) {
             const typed = new Typed(el.current, {
-                strings: ["Software Engineer", "Gamer", "Home chef", "Gardener"],
+                strings: ["Software Engineer", "Gamer", "Home chef", "Gardener", "Perfume Enthusiast"],
                 typeSpeed: 100,
                 backSpeed: 100,
                 backDelay: 1000,
