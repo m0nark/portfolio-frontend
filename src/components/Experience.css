@@ -46,7 +46,7 @@
 
 .timeline-marker {
     position: absolute;
-    left: -80px;
+    left: -73px;
     top: 15px;
     width: 50px;
     height: 50px;
@@ -90,9 +90,9 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #fff;
+    color: #56ECF9;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 .experience-content:hover {
@@ -103,15 +103,24 @@
 .experience-content h3 {
     margin: 0 0 12px;
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
     font-weight: 600;
+}
+
+.experience-content h5 {
+    margin: 8px 0;
+    color: #56ECF9;
+    font-size: 1.4rem;
+    font-weight: 500;
 }
 
 .experience-content p {
     margin: 8px 0;
     color: #c0c4cc;
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
 }
 
 .experience-content p:nth-of-type(2) { 

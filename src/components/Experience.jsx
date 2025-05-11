@@ -83,7 +83,7 @@ const Experience = () => {
                                                 <p>{exp.institution}</p>
                                                 <p className="location">{exp.location}</p>
                                                 <span className="duration">{exp.fromDate} - {exp.toDate}</span>
-                                                {exp.grade && <p>{exp.grade}</p>}
+                                                {exp.grade && <h5>{exp.grade}</h5>}
                                                 <p>{exp.description !== "<WILL FILL LATER>" ? exp.description : ""}</p>
                                                 {Array.isArray(exp.techStack) && exp.techStack.length > 0 && (
                                                     <div className="tech-stack">

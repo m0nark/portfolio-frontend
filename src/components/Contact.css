@@ -118,6 +118,9 @@
 }
 
 @media (max-width: 1100px) {
+  .contact-section {
+  padding: 10px 5%;
+  }
   .contact-form-columns {
     flex-direction: column;
     gap: 24px;

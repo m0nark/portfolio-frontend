@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  padding: 20px 5%;
+  padding: 20px 3%;
   font-family: 'Staatliches', sans-serif;
   scroll-behavior: smooth;
 }
@@ -70,7 +70,9 @@ section {
 
 .skills-section-outer {
   scroll-margin-top: 200px; 
+  max-height: 1250px;
 }
+
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -124,6 +126,8 @@ section {
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
 }
+
+
 
 @keyframes spin {
   0% { transform: rotate(0deg); }

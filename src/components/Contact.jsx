@@ -34,7 +34,7 @@ const Contact = () => {
 
             const data = await res.json();
             if (res.ok) {
-                setToast({ message: data.message, type: "success", gif: null });
+                setToast({ message: data.message, type: "success", gif: data.responseObject || null });
                 setForm(initialState);
             } else {
                 const gif = data.responseObject?.gif || null;
