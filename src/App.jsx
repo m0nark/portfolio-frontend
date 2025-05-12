@@ -46,7 +46,7 @@ function App() {
                 }, 1000);
 
                 return () => clearTimeout(fadeDuration);
-            }, 1000);
+            }, 200);
 
             return () => clearTimeout(showDelay);
         }
