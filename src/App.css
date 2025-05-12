@@ -98,6 +98,13 @@ section {
   pointer-events: none;
 }
 
+/* This class will be toggled on <html> */
+.dark-mode {
+  filter: invert(100%);
+  transition: filter 0.3s;
+}
+
+
 .loading-text {
   display: flex;
   flex-direction: column;
@@ -152,4 +159,25 @@ section {
 @keyframes zoomIn {
   0% { transform: scale(0); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+html.dark-mode img,
+html.dark-mode video {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+html.dark-mode .Logo-img {
+  filter: invert(0%) hue-rotate(0deg);
+}
+
+html.dark-mode i {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+html.dark-mode .social-icons a {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+html.dark-mode .social-icons a:hover {
+  filter: invert(0%) hue-rotate(0deg);
 }

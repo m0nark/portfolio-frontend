@@ -8,14 +8,15 @@ import Experience from "./components/Experience";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import DayNightToggle from "./components/DayNightToggle";
 
 function App() {
-
 
     const [isVerified, setIsVerified] = useState(null);
     const [errorMsg, setErrorMsg] = useState("");
     const [isReady, setIsReady] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
+    const [darkMode, setDarkMode] = React.useState(false);
 
     useEffect(() => {
         fetch("https://api.aaditjain.in/api/v1/visitor/log", {
@@ -50,7 +51,7 @@ function App() {
             return () => clearTimeout(showDelay);
         }
     }, [isVerified]);
-    
+
     const [scrollY, setScrollY] = useState(0);
 
     const handleScroll2 = () => {
@@ -97,6 +98,14 @@ function App() {
                 </nav>
             </header>
 
+            <DayNightToggle
+                checked={darkMode}
+                onChange={() => {
+                    setDarkMode(v => !v);
+                    document.documentElement.classList.toggle("dark-mode");
+                }}
+            />
+
             <section id="about">
                 <About scrollY={scrollY} />
             </section>
@@ -114,15 +123,16 @@ function App() {
             </section>
 
             <section id="contact" className="section-contact-outer">
-                <Contact /> 
+                <Contact />
             </section>
 
             <section id="footer" className="section-footer-outer">
-                <Footer/>
+                <Footer />
             </section>
 
         </div>
     );
 }
+
 
 export default App;
