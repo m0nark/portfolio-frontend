@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-import image from "./images/myself.png";
 import Logo from "./images/Logo2.png";
-import Typed from "typed.js";
 import InstagramFeed from "./components/InstagramFeed";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -117,6 +116,11 @@ function App() {
             <section id="contact" className="section-contact-outer">
                 <Contact /> 
             </section>
+
+            <section id="footer" className="section-footer-outer">
+                <Footer/>
+            </section>
+
         </div>
     );
 }

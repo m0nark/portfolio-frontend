@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  padding: 20px 3%;
+  padding: 3% 3% 0 3%;
   font-family: 'Staatliches', sans-serif;
   scroll-behavior: smooth;
 }

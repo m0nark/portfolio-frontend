@@ -92,7 +92,7 @@
     right: 20px;
     color: #56ECF9;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 22.4px;
 }
 
 .experience-content:hover {
@@ -103,8 +103,8 @@
 .experience-content h3 {
     margin: 0 0 12px;
     color: #fff;
-    font-size: 1.8rem;
-    letter-spacing: 0.04em;
+    font-size: 1.9rem;
+    letter-spacing: 0.05em;
     font-weight: 600;
 }
 
@@ -113,6 +113,9 @@
     color: #56ECF9;
     font-size: 1.4rem;
     font-weight: 500;
+    right : 20px;
+    position: absolute;
+    top: 70px;
 }
 
 .experience-content p {
@@ -121,11 +124,20 @@
     line-height: 1.6;
     font-size: 1.1rem;
     letter-spacing: 0.02em;
+    display: inline-block;
 }
 
 .experience-content p:nth-of-type(2) { 
     color: #3498db;
     font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.experience-content p:nth-of-type(1) { 
+    color: #3498db;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.1rem;
 }
 
 .tech-stack {
@@ -168,7 +180,7 @@
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.2s ease;
@@ -180,7 +192,7 @@
     color: #a0a4b2; 
     font-style: italic;
     margin: 4px 0 8px 0;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
 .tech-name {
@@ -198,7 +210,6 @@
 .tech-item:hover::after {
     opacity: 1;
 }
-
 
 .tech-name {
     color: #3498db;
