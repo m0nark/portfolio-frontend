@@ -4,8 +4,8 @@
   width: 56px;
   height: 32px;
   cursor: pointer;
-  margin-bottom: 20px;
-  right: -1700px;
+  margin-bottom: 1.5em;
+  right: -95%;
 }
 
 .toggle-switch input {

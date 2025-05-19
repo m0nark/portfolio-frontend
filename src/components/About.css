@@ -1,7 +1,7 @@
 .top-container {
     background-color: #20232D;
     border-radius: 30px;
-    height: 93vh;
+    height: 87vh;
     position: relative;
     transition: opacity 0.2s, transform 0.2s;
     margin-bottom: 10vh;
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding: 50px 10% 0;
+    padding: 50px 5% 0;
     gap: 10px;
     color: #ffffff;
   }
@@ -28,6 +28,7 @@
     position: relative;
     border-radius: 30px;
     transition: transform 0.3s ease;
+    font-size: 130%;
   }
   
   .about-content h1{
@@ -60,6 +61,7 @@
   .about-content .download-social{
     display: flex;
     align-items: center;
+    font-size: 100%;
   }
   
   .btn-download-resume{
@@ -90,7 +92,7 @@
     padding: 8px;
     border: 2px solid #ffffff;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 100%;
     color: #ffffff;
     text-decoration: none;
     margin: 0 8px;
@@ -117,8 +119,8 @@
   }
   
   .profile-photo {
-    width: 600px;
-    height: 600px;
+    width: 90%;
+    height: 90%;
     object-fit: cover;
     border-radius: 50%;
     opacity: 0;

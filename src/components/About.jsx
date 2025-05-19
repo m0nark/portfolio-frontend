@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import "./About.css";
-import image from "../images/myself.png"; // Adjust path if needed
+import image from "../images/myself.png";
 import Typed from "typed.js";
 
 const About = ({ scrollY }) => {

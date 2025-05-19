@@ -17,14 +17,14 @@ body {
 
 .header {
   position: fixed;
-  top: 5px; 
+  top: 0.5em; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #20232D;
   border-radius: 20px;
   padding: 10px 3%;
   width: 90%;
-  max-width: 1200px;
+  max-width: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
