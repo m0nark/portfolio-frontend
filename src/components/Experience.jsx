@@ -84,7 +84,13 @@ const Experience = () => {
                                                 <p className="location">{exp.location}</p>
                                                 <span className="duration">{exp.fromDate} - {exp.toDate}</span>
                                                 {exp.grade && <h5>{exp.grade}</h5>}
-                                                <p>{exp.description !== "<WILL FILL LATER>" ? exp.description : ""}</p>
+                                                {exp.description !== null && (
+                                                    <p
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: exp.description.replace(/\\n/g, '<br />') // Note: DOUBLE BACKSLASH!
+                                                        }}
+                                                    ></p>
+                                                )}
                                                 {Array.isArray(exp.techStack) && exp.techStack.length > 0 && (
                                                     <div className="tech-stack">
                                                         {exp.techStack.map((tech) => (

@@ -108,7 +108,7 @@
   .about-img {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     max-width: 100%;
     max-height: 100%;
@@ -119,8 +119,8 @@
   }
   
   .profile-photo {
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 80%;
     object-fit: cover;
     border-radius: 50%;
     opacity: 0;

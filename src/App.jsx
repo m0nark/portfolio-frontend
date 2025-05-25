@@ -9,6 +9,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import DayNightToggle from "./components/DayNightToggle";
+import GoToTopButton from "./components/GoToTopButton";
 
 function App() {
 
@@ -129,6 +130,8 @@ function App() {
             <section id="footer" className="section-footer-outer">
                 <Footer />
             </section>
+
+            <GoToTopButton />
 
         </div>
     );
