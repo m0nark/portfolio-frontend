@@ -68,6 +68,7 @@ function App() {
         return (
             <div className="error-screen">
                 <p>{errorMsg || "An error occurred while verifying you."}</p>
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnNyczlvejVkbXB2bmNpdzZ3MDRxd3czb2dpNmZ0Mmx2dzIwbTd5eiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/UHAYP0FxJOmFBuOiC2/giphy.gif" alt="Error 404" className="error-image" />
                 <button onClick={() => window.location.reload()}>Retry</button>
             </div>
         );

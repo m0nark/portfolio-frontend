@@ -6,6 +6,31 @@
   background-color: #1c1f26;
   border-radius: 30px;
   transition: opacity 0.2s, transform 0.2s;
+  padding-top: 150px;
+}
+
+.projects-header-container {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  margin-bottom: 20px;
+}
+
+.projects-header {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 16px 32px;
+  border-radius: 18px;
+  margin-top: 12px;
+  pointer-events: auto;
 }
 
 .carousel {
@@ -45,6 +70,8 @@
   transition: transform 0.15s ease;
   will-change: transform;
   perspective: 1000px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .project-image-area {

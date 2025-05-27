@@ -22,7 +22,7 @@ const Projects = () => {
         if (!repos.length || isPaused) return;
 
         const interval = setInterval(() => {
-            scrollRight(); 
+            scrollRight();
         }, 4000);
 
         return () => clearInterval(interval);
@@ -31,9 +31,9 @@ const Projects = () => {
 
     const scrollLeft = () => {
         if (!carouselRef.current) return;
-        const scrollDistance = 100; 
+        const scrollDistance = 100;
 
-        
+
         clearTimeout(pauseTimeoutRef.current);
         setIsPaused(true);
 
@@ -47,10 +47,10 @@ const Projects = () => {
 
     const scrollRight = () => {
         if (!carouselRef.current) return;
-        const scrollDistance = 100; 
+        const scrollDistance = 100;
 
         clearTimeout(pauseTimeoutRef.current);
-        setIsPaused(true); 
+        setIsPaused(true);
 
         pauseTimeoutRef.current = setTimeout(() => setIsPaused(false), 3000);
 
@@ -63,7 +63,7 @@ const Projects = () => {
         if (isAtEnd) {
             setTimeout(() => {
                 carouselRef.current.scrollLeft = 0;
-            }, 300); 
+            }, 300);
         }
     };
 
@@ -79,8 +79,8 @@ const Projects = () => {
     }, []);
 
     const fadeInStart = 300;
-    const fadeInEnd = 500; 
-    const fadeOutStart = 900; 
+    const fadeInEnd = 500;
+    const fadeOutStart = 900;
     const fadeOutEnd = 1450;
 
     let opacity = 1;
@@ -90,7 +90,7 @@ const Projects = () => {
     } else if (scrollY >= fadeInStart && scrollY < fadeInEnd) {
         opacity = (scrollY - fadeInStart) / (fadeInEnd - fadeInStart);
     } else if (scrollY >= fadeInEnd && scrollY < fadeOutStart) {
-        opacity = 1; // hold
+        opacity = 1; 
     } else if (scrollY >= fadeOutStart && scrollY < fadeOutEnd) {
         opacity = 1 - (scrollY - fadeOutStart) / (fadeOutEnd - fadeOutStart);
     } else {
@@ -110,20 +110,20 @@ const Projects = () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -15;
-            const rotateY = ((x - centerX) / centerX) * 15;
+            const rotateX = ((y - centerY) / centerY) * 15;
+            const rotateY = ((x - centerX) / centerX) * -15;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
         });
 
         card.addEventListener('mouseleave', () => {
-            setIsPaused(false); // Resume auto-scroll on mouse leave
+            setIsPaused(false);
             card.style.transition = 'transform 0.3s ease';
             card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
         });
 
         card.addEventListener('mouseenter', () => {
-            setIsPaused(true); // Pause auto-scroll on hover
+            setIsPaused(true);
             card.style.transition = 'transform 0.1s ease';
         });
     });
@@ -133,7 +133,9 @@ const Projects = () => {
             opacity,
             transform: `translateY(${50 - scrollY / 10}px)`,
             transition: 'opacity 0.3s ease, transform 0.3s ease',
-        }}> 
+        }}><div className="projects-header-container">
+                <h2 className="projects-header">Projects</h2>
+            </div>
             <div className="carousel-wrapper">
                 <div className="carousel" ref={carouselRef}>
                     {repos.map((repo) => (
@@ -161,10 +163,10 @@ const Projects = () => {
 
                 <div className="carousel-controls">
                     <button className="carousel-button" onClick={scrollLeft} aria-label="Scroll Left">
-                    <i class="ri-arrow-left-s-line"></i>
+                        <i class="ri-arrow-left-s-line"></i>
                     </button>
                     <button className="carousel-button" onClick={scrollRight} aria-label="Scroll Right">
-                    <i class="ri-arrow-right-s-line"></i>
+                        <i class="ri-arrow-right-s-line"></i>
                     </button>
                 </div>
             </div>
