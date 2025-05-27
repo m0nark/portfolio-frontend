@@ -10,7 +10,7 @@ const Projects = () => {
 
     useEffect(() => {
         const getRepos = async () => {
-            const fetchedRepos = await fetchProjects(); // Fetch repos using the service
+            const fetchedRepos = await fetchProjects();
             setRepos(fetchedRepos);
         };
 
@@ -22,7 +22,7 @@ const Projects = () => {
         if (!repos.length || isPaused) return;
 
         const interval = setInterval(() => {
-            scrollRight(); // Scroll right by the fixed distance every 3 seconds
+            scrollRight(); 
         }, 4000);
 
         return () => clearInterval(interval);
@@ -31,16 +31,14 @@ const Projects = () => {
 
     const scrollLeft = () => {
         if (!carouselRef.current) return;
-        const scrollDistance = 100; // Fixed scroll distance
+        const scrollDistance = 100; 
 
-        // Clear timeout for pausing auto-scroll
+        
         clearTimeout(pauseTimeoutRef.current);
-        setIsPaused(true); // Pause auto-scroll
+        setIsPaused(true);
 
-        // Resume auto-scroll after 3 seconds
         pauseTimeoutRef.current = setTimeout(() => setIsPaused(false), 3000);
 
-        // Scroll left by a fixed distance
         carouselRef.current.scrollBy({
             left: -scrollDistance,
             behavior: 'smooth',
@@ -49,16 +47,13 @@ const Projects = () => {
 
     const scrollRight = () => {
         if (!carouselRef.current) return;
-        const scrollDistance = 100; // Fixed scroll distance
+        const scrollDistance = 100; 
 
-        // Clear timeout for pausing auto-scroll
         clearTimeout(pauseTimeoutRef.current);
-        setIsPaused(true); // Pause auto-scroll
+        setIsPaused(true); 
 
-        // Resume auto-scroll after 3 seconds
         pauseTimeoutRef.current = setTimeout(() => setIsPaused(false), 3000);
 
-        // Scroll right by a fixed distance
         carouselRef.current.scrollBy({
             left: scrollDistance,
             behavior: 'smooth',
@@ -66,10 +61,9 @@ const Projects = () => {
 
         const isAtEnd = carouselRef.current.scrollLeft + carouselRef.current.offsetWidth >= carouselRef.current.scrollWidth;
         if (isAtEnd) {
-            // If we are at the end, scroll back to the start
             setTimeout(() => {
                 carouselRef.current.scrollLeft = 0;
-            }, 300); // Delay slightly to allow the smooth scroll effect
+            }, 300); 
         }
     };
 
@@ -85,8 +79,8 @@ const Projects = () => {
     }, []);
 
     const fadeInStart = 300;
-    const fadeInEnd = 500; // fully visible at 600
-    const fadeOutStart = 900; // pause between 600–900
+    const fadeInEnd = 500; 
+    const fadeOutStart = 900; 
     const fadeOutEnd = 1450;
 
     let opacity = 1;
@@ -116,10 +110,10 @@ const Projects = () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -15; // negative flips vertical axis
+            const rotateX = ((y - centerY) / centerY) * -15;
             const rotateY = ((x - centerX) / centerX) * 15;
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
         });
 
         card.addEventListener('mouseleave', () => {

@@ -13,11 +13,13 @@ body {
   padding: 3% 3% 0 3%;
   font-family: 'Staatliches', sans-serif;
   scroll-behavior: smooth;
+  background-color: #272B36;
+  /*1F222C*/
 }
 
 .header {
   position: fixed;
-  top: 0.5em; 
+  top: 0.6em; 
   left: 50%;
   transform: translateX(-50%);
   background-color: #20232D;
@@ -28,7 +30,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 225, 255, 0.3);
+  box-shadow: white 0px 0px 10px;
   z-index: 1000;
 }
 

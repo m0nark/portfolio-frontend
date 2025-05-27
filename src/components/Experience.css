@@ -93,9 +93,10 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #56ECF9;
+    color: #888888;
     font-weight: 500;
     font-size: 22.4px;
+    font-style: italic;
 }
 
 .experience-content:hover {
@@ -106,7 +107,7 @@
 .experience-content h3 {
     margin: 0 0 12px;
     color: #fff;
-    font-size: 1.9rem;
+    font-size: 2.7rem;
     letter-spacing: 0.05em;
     font-weight: 600;
 }
@@ -114,20 +115,30 @@
 .experience-content h5 {
     margin: 8px 0;
     color: #56ECF9;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     font-weight: 500;
     right: 20px;
     position: absolute;
     top: 70px;
 }
 
+.highlighted {
+  color: #56ECF9;
+}
+
+.highlighted2 {
+  color: #ffb347;
+  font-weight: bold;
+}
+
 .experience-content p {
     margin: 8px 0;
-    color: #c0c4cc;
+    color: #ffffff;
     line-height: 1.6;
-    font-size: 1.1rem;
-    letter-spacing: 0.02em;
+    font-size: 1.3rem;
+    letter-spacing: 0.03em;
     display: inline-block;
+    font-style: italic;
 }
 
 .experience-content p:nth-of-type(2) {

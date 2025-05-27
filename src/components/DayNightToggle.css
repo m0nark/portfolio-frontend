@@ -24,6 +24,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 6px;
+  border: #fff 1px solid;
 }
 
 .icon {

@@ -1,5 +1,5 @@
 .top-container {
-    background-color: #20232D;
+    background-color: #272B35;
     border-radius: 30px;
     height: 87vh;
     position: relative;
@@ -28,7 +28,7 @@
     position: relative;
     border-radius: 30px;
     transition: transform 0.3s ease;
-    font-size: 130%;
+    font-size: 140%;
   }
   
   .about-content h1{
@@ -46,6 +46,17 @@
     letter-spacing: 0.03em;
     animation: slideBottom 1s ease forwards;
     animation-delay: 1s;
+  }
+
+   .about-content h3{
+    font-size: 27px;
+    opacity: 0;
+    letter-spacing: 0.05em;
+    font-style: italic;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 1s;
+    color: silver;
+    margin-bottom: 1.2em;
   }
   
   .about-content h2:nth-of-type(2){
@@ -108,7 +119,7 @@
   .about-img {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     max-width: 100%;
     max-height: 100%;
