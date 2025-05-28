@@ -3,7 +3,7 @@
     margin: 0 auto;
     margin-top: 10px;
     padding: 70px 20px 40px 20px;
-    background: #1C1F26;
+    background: #000;
     border-radius: 30px;
     color: #f8f9fa;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.22);
@@ -123,15 +123,9 @@
     top: 70px;
 }
 
-.highlighted {
+.highlighted2 {
   color: #56ECF9;
 }
-
-.highlighted2 {
-  color: #ffb347;
-  font-weight: bold;
-}
-
 .experience-content p {
     margin: 8px 0;
     color: #ffffff;

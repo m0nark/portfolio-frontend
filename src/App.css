@@ -13,7 +13,7 @@ body {
   padding: 3% 3% 0 3%;
   font-family: 'Staatliches', sans-serif;
   scroll-behavior: smooth;
-  background-color: #272B36;
+  background-color: #000;
   /*1F222C*/
 }
 
@@ -22,7 +22,7 @@ body {
   top: 0.6em; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: #20232D;
+  background-color: #000;
   border-radius: 20px;
   padding: 10px 3%;
   width: 90%;
@@ -39,7 +39,6 @@ body {
   color: #ffffff;
   letter-spacing: 2px;
   text-decoration: none;
-  font-weight: 700;
   flex: 1;
   opacity: 0;
   animation: slideRight 1s ease forwards;
@@ -230,9 +229,19 @@ html.dark-mode i {
 }
 
 html.dark-mode .social-icons a {
+  border: black 2px solid;
   filter: invert(100%) hue-rotate(0deg);
 }
 
 html.dark-mode .social-icons a:hover {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+html.dark-mode .carousel-controls {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+html.dark-mode .carousel-controls i{
   filter: invert(0%) hue-rotate(0deg);
 }
+
