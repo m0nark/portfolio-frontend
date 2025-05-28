@@ -5,22 +5,36 @@ import { skillsMap } from '../services/SkillsService';
 const Experience = () => {
     const [experienceData, setExperienceData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
+    const [expandedDescriptions, setExpandedDescriptions] = useState({});
     const contentRefs = useRef([]);
 
     useEffect(() => {
         fetch('https://api.aaditjain.in/api/v1/experience/getAll')
-            .then((response) => response.json())
+            .then((response) => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
             .then((data) => {
-                setExperienceData(data.responseObject);
-                setLoading(false);
+                // Validate API response structure
+                if (data?.responseObject && Array.isArray(data.responseObject)) {
+                    setExperienceData(data.responseObject);
+                } else {
+                    setHasError(true);
+                }
             })
             .catch((error) => {
                 console.error('Error fetching experience data:', error);
+                setHasError(true);
+            })
+            .finally(() => {
                 setLoading(false);
             });
     }, []);
 
     useEffect(() => {
+        if (!experienceData.length) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -47,10 +61,40 @@ const Experience = () => {
         };
     }, [experienceData]);
 
+    const groupByType = (data) => {
+        if (!Array.isArray(data)) return {};
+        return data.reduce((acc, item) => {
+            acc[item.type] = acc[item.type] || [];
+            acc[item.type].push(item);
+            return acc;
+        }, {});
+    };
+
+    const toggleDescription = (expId) => {
+        setExpandedDescriptions(prev => ({
+            ...prev,
+            [expId]: !prev[expId]
+        }));
+    };
+
+    const hasDescription = (description) => {
+        return description !== null && description !== undefined && description.trim() !== '';
+    };
+
     const grouped = groupByType(experienceData);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="loading-status">Loading experience data...</div>;
+    }
+
+    if (hasError || !experienceData.length) {
+        return (
+            <div className="experience-container">
+                <div className="error-message">
+                    Unable to load experience data. Please try again later.
+                </div>
+            </div>
+        );
     }
 
     let cardIdx = 0;
@@ -62,10 +106,13 @@ const Experience = () => {
             </div>
             <div className="experience-list">
                 {['WORK', 'EDUCATION'].map(type => (
-                    grouped[type] && (
+                    grouped[type]?.length > 0 && (
                         <div key={type} className="experience-type-section">
                             {grouped[type].map((exp) => {
                                 const refIdx = cardIdx++;
+                                const isExpanded = expandedDescriptions[exp.id];
+                                const showDescription = hasDescription(exp.description);
+                                
                                 return (
                                     <div
                                         key={exp.id}
@@ -84,13 +131,32 @@ const Experience = () => {
                                                 <p className="location">{exp.location}</p>
                                                 <span className="duration">{exp.fromDate} - {exp.toDate}</span>
                                                 {exp.grade && <h5>{exp.grade}</h5>}
-                                                {exp.description !== null && (
-                                                    <p
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: exp.description.replace(/\\n/g, '<br />') // Note: DOUBLE BACKSLASH!
-                                                        }}
-                                                    ></p>
+                                                
+                                                {/* Description toggle button and content */}
+                                                {showDescription && (
+                                                    <div className="description-section">
+                                                        <button 
+                                                            className="description-toggle-btn"
+                                                            onClick={() => toggleDescription(exp.id)}
+                                                            aria-expanded={isExpanded}
+                                                            aria-label={isExpanded ? "Collapse description" : "Expand description"}
+                                                        >
+                                                            <i className={`ri-${isExpanded ? 'arrow-up' : 'arrow-down'}-s-line`}></i>
+                                                        </button>
+                                                        
+                                                        {isExpanded && (
+                                                            <div className="description-content">
+                                                                <p
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: exp.description.replace(/\\n/g, '<br />') // Note: DOUBLE BACKSLASH!
+                                                                    }}
+                                                                ></p>
+                                                            </div>
+                                                        )}
+                                                    </div>
                                                 )}
+                                                
+                                                {/* Tech stack - always displayed if available */}
                                                 {Array.isArray(exp.techStack) && exp.techStack.length > 0 && (
                                                     <div className="tech-stack">
                                                         {exp.techStack.map((tech) => (
@@ -120,6 +186,7 @@ const Experience = () => {
         </div>
     );
 };
+
 function groupByType(data) {
     return data.reduce((acc, item) => {
         acc[item.type] = acc[item.type] || [];

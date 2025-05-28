@@ -50,13 +50,14 @@
   }
 
    .about-content h3{
-    font-size: 27px;
+    font-size: 20px;
     opacity: 0;
     letter-spacing: 0.05em;
     font-style: italic;
     font-weight: 400;
     animation: slideBottom 1s ease forwards;
     animation-delay: 1s;
+    margin-bottom: 1.2em;
     color: silver;
   }
 

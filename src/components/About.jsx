@@ -34,8 +34,8 @@ const About = ({ scrollY }) => {
                     <h2>
                         And I'm a <span ref={el}></span>
                     </h2>
-                    <h3> Passionate software engineer who loves the challenge of learning new technologies and using them to create meaningful impact. </h3>
-                        <br></br><h3>I harbor a deep love for mathematics and technology, constantly seeking ways to bridge theoretical concepts with practical applications.</h3>
+                    <h3> Passionate software engineer who loves the challenge of learning new technologies and using them to create meaningful impact.
+                        I harbor a deep love for mathematics and technology, constantly seeking ways to bridge theoretical concepts with practical applications.</h3>
                     <div className="download-social">
                         <a href="#" className="btn-download-resume">
                             Download Resume

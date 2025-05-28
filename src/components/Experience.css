@@ -143,7 +143,6 @@
 }
 
 .experience-content p:nth-of-type(1) {
-    color: #3498db;
     font-style: italic;
     font-weight: 500;
     font-size: 1.1rem;
@@ -300,4 +299,113 @@
     flex: 1;
     box-sizing: border-box;
     word-break: break-word;
+}
+
+.description-section {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.description-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(52, 152, 219, 0.15);
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: #3498db;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: 12px;
+    outline: none;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    left: 50%;
+}
+
+.description-toggle-btn:hover {
+    background: rgba(52, 152, 219, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    color: #56ECF9;
+    border-color: #56ECF9;
+}
+
+.description-toggle-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+}
+
+.description-toggle-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.description-toggle-btn:hover i {
+    transform: scale(1.1);
+}
+
+.description-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 8px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.description-content p {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-style: normal;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 200px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .description-toggle-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .description-content {
+        padding: 12px;
+    }
+    
+    .description-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .description-toggle-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .description-content {
+        padding: 10px;
+    }
+    
+    .description-content p {
+        font-size: 1rem;
+    }
 }
