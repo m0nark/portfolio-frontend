@@ -79,7 +79,6 @@ function App() {
             <div className={`loading-overlay ${fadeOut ? 'fade-out' : ''}`}>
                 <div className="loading-text">
                     <div className="spinner" />
-                    <span>Loading portfolio...</span>
                 </div>
             </div>
         );
