@@ -114,10 +114,12 @@
 }
 
 .experience-content h5 {
+    font-family: 'Lato', sans-serif;
     margin: 8px 0;
     color: #56ECF9;
-    font-size: 1.7rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 900;
     right: 20px;
     position: absolute;
     top: 70px;
@@ -313,17 +315,14 @@
     gap: 8px;
     background: rgba(52, 152, 219, 0.15);
     border: 2px solid #3498db;
-    border-radius: 8px;
+    border-radius: 45%;
     padding: 10px 16px;
     color: #3498db;
-    font-size: 0.95rem;
-    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     margin-bottom: 12px;
     outline: none;
-    font-family: inherit;
     letter-spacing: 0.02em;
     left: 50%;
 }

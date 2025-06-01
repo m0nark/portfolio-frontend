@@ -112,7 +112,7 @@ const Experience = () => {
                                 const refIdx = cardIdx++;
                                 const isExpanded = expandedDescriptions[exp.id];
                                 const showDescription = hasDescription(exp.description);
-                                
+
                                 return (
                                     <div
                                         key={exp.id}
@@ -131,11 +131,11 @@ const Experience = () => {
                                                 <p className="location">{exp.location}</p>
                                                 <span className="duration">{exp.fromDate} - {exp.toDate}</span>
                                                 {exp.grade && <h5>{exp.grade}</h5>}
-                                                
+
                                                 {/* Description toggle button and content */}
                                                 {showDescription && (
                                                     <div className="description-section">
-                                                        <button 
+                                                        <button
                                                             className="description-toggle-btn"
                                                             onClick={() => toggleDescription(exp.id)}
                                                             aria-expanded={isExpanded}
@@ -143,7 +143,7 @@ const Experience = () => {
                                                         >
                                                             <i className={`ri-${isExpanded ? 'arrow-up' : 'arrow-down'}-s-line`}></i>
                                                         </button>
-                                                        
+
                                                         {isExpanded && (
                                                             <div className="description-content">
                                                                 <p
@@ -155,7 +155,7 @@ const Experience = () => {
                                                         )}
                                                     </div>
                                                 )}
-                                                
+
                                                 {/* Tech stack - always displayed if available */}
                                                 {Array.isArray(exp.techStack) && exp.techStack.length > 0 && (
                                                     <div className="tech-stack">
