@@ -92,8 +92,20 @@
 
 .duration {
     position: absolute;
-    top: 20px;
+    top: 40px;
     right: 20px;
+    color: #888888;
+    font-weight: 500;
+    font-size: 22.4px;
+    font-style: italic;
+}
+
+/* Fix for education duration - move to bottom */
+.experience-box-education .duration {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    top: 40px;
     color: #888888;
     font-weight: 500;
     font-size: 22.4px;
@@ -126,8 +138,9 @@
 }
 
 .highlighted2 {
-  color: #56ECF9;
+    color: #56ECF9;
 }
+
 .experience-content p {
     margin: 8px 0;
     color: #ffffff;
@@ -155,6 +168,11 @@
     flex-wrap: wrap;
     gap: 12px;
     margin-top: 20px;
+}
+
+/* Ensure tech-stack has enough bottom margin for education boxes */
+.experience-box-education .tech-stack {
+    margin-bottom: 50px;
 }
 
 .tech-item {
@@ -239,7 +257,6 @@
 @media (max-width: 768px) {
     .experience-container {
         padding: 20px;
-        margin: 60px auto;
     }
 
     .timeline-marker {
@@ -263,6 +280,21 @@
         font-weight: 500;
         transition: color 0.2s ease;
     }
+
+    /* Fix duration position for education on mobile */
+    .experience-box-education .duration {
+        position: static;
+        display: block;
+        text-align: left;
+        margin-top: 16px;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        color: #888888;
+    }
+
+    .experience-box-education .tech-stack {
+        margin-bottom: 8px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -279,6 +311,12 @@
     .experience-content h3 {
         font-size: 1.2rem;
     }
+
+    /* Smaller duration font on very small screens */
+    .experience-box-education .duration {
+
+        font-size: 0.8rem;
+    }
 }
 
 .experience-content p:nth-of-type(1),
@@ -288,7 +326,7 @@
 }
 
 .experience-content h5 {
-    top: 60px;
+    top: 90px;
     right: 20px;
 }
 
@@ -306,43 +344,51 @@
 .description-section {
     margin-top: 16px;
     margin-bottom: 8px;
-}
-
-.description-toggle-btn {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.description-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     gap: 8px;
-    background: rgba(52, 152, 219, 0.15);
-    border: 2px solid #3498db;
-    border-radius: 45%;
+    background: #262A35;
+    border: none;
+    border-radius: 50%;
     padding: 10px 16px;
     color: #3498db;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    margin-bottom: 12px;
-    outline: none;
+    margin: 0 auto 12px;
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Remove any box shadow */
     letter-spacing: 0.02em;
-    left: 50%;
+    font-size: 0.9rem;
 }
 
-.description-toggle-btn:hover {
-    background: rgba(52, 152, 219, 0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
-    color: #56ECF9;
-    border-color: #56ECF9;
+.description-toggle-btn:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .description-toggle-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+    outline: none;
+    box-shadow: none;
+    transform: translateY(0); /* Prevent jump on click */
+}
+
+.description-toggle-btn:hover::after {
+    opacity: 1;
 }
 
 .description-toggle-btn i {
     font-size: 1.1rem;
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
 .description-toggle-btn:hover i {
@@ -371,6 +417,7 @@
         transform: translateY(-10px);
         max-height: 0;
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -380,31 +427,227 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .description-toggle-btn {
-        padding: 8px 12px;
+
+    /* container & header */
+    .experience-container {
+        max-width: 100%;
+        padding: 50px 16px 30px;
+        border-radius: 22px;
+    }
+
+    .experience-header {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+
+    /* timeline marker & sticky pillar */
+    .timeline-marker {
+        display: none;
+    }
+
+    .experience-sticky {
+        position: static !important;
+        top: auto !important;
+        z-index: 1;
+    }
+
+    /* each card */
+    .experience-content {
+        padding: 18px 16px 20px;
+        border-radius: 10px;
+        margin-bottom: 14px;
+        overflow: visible;
+        max-height: none;
+    }
+
+    .experience-content h3 {
+        font-size: 1.35rem;
+        margin-bottom: 6px;
+    }
+
+    .experience-content h5 {
+        font-size: 1rem;
+        top: 58px;
+    }
+
+    .duration {
+        font-size: 0.95rem;
+        top: 14px;
+        right: 14px;
+    }
+
+    .experience-content p:nth-of-type(1) {
         font-size: 0.9rem;
+        line-height: 1.2;
     }
-    
-    .description-content {
-        padding: 12px;
+
+    /* tech stack row */
+    .tech-stack {
+        gap: 8px;
+        margin-top: 16px;
     }
-    
-    .description-content p {
+
+    .tech-item {
+        padding: 6px 12px;
+        border-radius: 16px;
+    }
+
+    .tech-item i {
         font-size: 1.1rem;
     }
-}
 
-@media (max-width: 480px) {
-    .description-toggle-btn {
-        padding: 6px 10px;
+    .tech-item::after {
         font-size: 0.85rem;
     }
-    
+
+    /* description section toggle */
+    .description-toggle-btn {
+        position: relative;
+        /* center the button properly */
+        left: 0;
+        margin: 0 auto 12px;
+    }
+
     .description-content {
         padding: 10px;
     }
-    
+
     .description-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* ─────────────────────────────── */
+/*  Very small phones (≤480 px)    */
+/* ─────────────────────────────── */
+@media (max-width: 480px) {
+    .experience-container {
+        padding: 40px 12px 24px;
+    }
+
+    .experience-header {
+        font-size: 1.6rem;
+    }
+
+    .timeline-marker {
+        left: -22px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .experience-content {
+        padding: 16px 12px 18px;
+    }
+
+    .experience-content h3 {
+        font-size: 1.15rem;
+    }
+
+    .experience-content h5 {
+        font-size: 0.9rem;
+        top: 52px;
+    }
+
+    .duration {
+        font-size: 0.8rem;
+    }
+
+    .tech-item {
+        padding: 5px 10px;
+    }
+
+    .tech-item i {
         font-size: 1rem;
     }
+
+    .tech-item::after {
+        font-size: 0.75rem;
+    }
+
+    .description-toggle-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ───────────────────────────────────── */
+/*  Short-height landscape phones tweak  */
+/* ───────────────────────────────────── */
+@media (max-width: 812px) and (orientation: landscape) {
+    .experience-sticky {
+        top: 48px;
+    }
+
+    .experience-container {
+        padding-top: 40px;
+    }
+
+    .experience-header {
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+    }
+
+    .experience-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .experience-content p {
+        font-size: 0.8rem;
+    }
+
+    .tech-stack {
+        gap: 6px;
+    }
+}
+
+.visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+@media (max-width: 768px) {
+
+  /* shrink padding & let card grow */
+  .experience-box-education .experience-content {
+    padding: 16px 14px 18px;
+    overflow: visible;
+  }
+
+  /* title a bit smaller on phones */
+  .experience-box-education .experience-content h3 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  /* move CGPA / Percentage line into normal flow  */
+  .experience-box-education .experience-content h5 {
+    position: static;          /* no absolute overlap */
+    margin-top: 2px;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    text-align: left;
+    color: #56ECF9;
+    font-style: italic;        /* keep the look */
+    font-weight: 800;
+  }
+
+  /* tighten the first info line (institution-location) */
+  .experience-box-education .experience-content p:nth-of-type(1),
+  .experience-box-education .experience-content .location {
+    font-size: 0.82rem;
+    line-height: 1.1;
+  }
+
+  /* ensure the tech-stack row still wraps nicely */
+  .experience-box-education .tech-stack {
+    gap: 6px;
+    margin-top: 14px;
+  }
+}
+
+/* tiny phones (≤ 480 px) – slight further scale-down */
+@media (max-width: 480px) {
+  .experience-box-education .experience-content h3 { font-size: 1.05rem; }
+  .experience-box-education .experience-content h5 { font-size: 0.85rem; }
 }

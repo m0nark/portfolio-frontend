@@ -198,3 +198,10 @@
   color: #ffffff;
   box-shadow: none;
 }
+
+@media screen and (max-width: 768px) {
+  .projects-container {
+    scroll-margin-bottom: -600px;
+  }
+
+}

@@ -1,169 +1,286 @@
 .top-container {
-    background-color: #000;
-    border-radius: 30px;
-    height: 87vh;
-    position: relative;
-    transition: opacity 0.2s, transform 0.2s;
-    margin-bottom: 10vh;
+  background-color: #000;
+  border-radius: 30px;
+  height: 87vh;
+  position: relative;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-bottom: 10vh;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 50px 5% 0;
+  gap: 10px;
+  color: #ffffff;
+}
+
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+  font-size: 140%;
+}
+
+.about-content h1 {
+  font-size: 8em;
+  line-height: 1;
+  opacity: 0;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  animation: slideRight 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.about-content h2 {
+  font-size: 52px;
+  opacity: 0;
+  letter-spacing: 0.03em;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.about-content h3 {
+  font-size: 20px;
+  opacity: 0;
+  letter-spacing: 0.05em;
+  font-style: italic;
+  font-weight: 400;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 1s;
+  margin-bottom: 1.2em;
+  color: silver;
+}
+
+.about-content h3:nth-of-type(2) {
+  margin-bottom: 1.2em;
+}
+
+.about-content h2:nth-of-type(2) {
+  margin-bottom: 30px;
+  animation: slideTop 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.about-content p {
+  margin: 10px 0 20px;
+}
+
+.about-content .download-social {
+  display: flex;
+  align-items: center;
+  font-size: 100%;
+}
+
+.btn-download-resume {
+  display: inline-block;
+  padding: 10px 30px;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 0 10px #ffffff;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.btn-download-resume:hover {
+  background: none;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.about-content .social-icons {
+  margin-left: 20px;
+}
+
+.about-content .social-icons a {
+  display: inline-flex;
+  padding: 8px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  font-size: 100%;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: .5s;
+}
+
+.about-content .social-icons a:hover {
+  background: #ffffff;
+  color: #20232D;
+  box-shadow: 0 0 10px #ffffff;
+}
+
+.about-img {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+}
+
+.profile-photo {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  animation: zoomIn 1s ease forwards;
+  animation-delay: 1.6s;
+}
+
+.about-content h2 span {
+  color: #01ECFF;
+}
+
+/* Animations (copy from App.css) */
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
   }
-  
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .about-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 50px 5% 0;
-    gap: 10px;
-    color: #ffffff;
-  }
-  
-  .about-content {
-    flex: 1;
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-    border-radius: 30px;
-    transition: transform 0.3s ease;
-    font-size: 140%;
+    align-items: center;
+    padding: 30px 20px 0;
+    padding-top: 100px;
+    gap: 40px;
   }
-  
-  .about-content h1{
-    font-size:8em;
-    line-height: 1;
-    opacity: 0;
-    letter-spacing: 0.04em;
-    font-weight: 600;
+
+  .about-content {
+    font-size: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-content h1 {
+    font-size: 9vh;
+    animation-delay: 0.8s;
+    animation: slideLeft 1s ease forwards;
+  }
+
+  .about-content h2 {
+    font-size: 3.3vh;
     animation: slideRight 1s ease forwards;
-    animation-delay: 1s;
-  }
-  
-  .about-content h2{
-    font-size: 52px;
-    opacity: 0;
-    letter-spacing: 0.03em;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: 1s;
   }
 
-   .about-content h3{
-    font-size: 20px;
-    opacity: 0;
-    letter-spacing: 0.05em;
-    font-style: italic;
-    font-weight: 400;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: 1s;
-    margin-bottom: 1.2em;
-    color: silver;
+  .about-content h2:nth-of-type(2) {
+    margin-bottom: 10px;
   }
 
-  .about-content h3:nth-of-type(2){
-    margin-bottom: 1.2em;
+  .about-content h3 {
+    font-size: 0.9em;
+    padding: 0 10px;
   }
-  
-  .about-content h2:nth-of-type(2){
-    margin-bottom: 30px;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 0.7s;
+
+  .btn-download-resume {
+    padding: 8px 20px;
+    font-size: 0.9em;
   }
-  
-  .about-content p{
-    margin: 10px 0 20px;
+
+  .about-content .download-social {
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  .about-content .download-social{
-    display: flex;
-    align-items: center;
-    font-size: 100%;
+
+  .about-content .social-icons {
+    margin-left: 0;
   }
-  
-  .btn-download-resume{
-    display: inline-block;
-    padding: 10px 30px;
-    background: #ffffff;
-    border: 2px solid #ffffff;
-    border-radius: 40px;
-    box-shadow: 0 0 10px #ffffff;
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.5s;
+
+  .about-content .social-icons a {
+    margin: 0 5px;
+    font-size: 1.2em;
   }
-  
-  .btn-download-resume:hover{
-    background: none;
-    color: #ffffff;
-    box-shadow: none;
-  }
-  
-  .about-content .social-icons{
-    margin-left: 20px;
-  }
-  
-  .about-content .social-icons a{
-    display: inline-flex;
-    padding: 8px;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    font-size: 100%;
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 8px;
-    transition: .5s;
-  }
-  
-  .about-content .social-icons a:hover{
-    background: #ffffff;
-    color: #20232D;
-    box-shadow: 0 0 10px #ffffff;
-  }
-  
+
   .about-img {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    max-width: 100%;
-    max-height: 100%;
-    overflow: hidden;
-    position: relative;
-    border-radius: 30px;
-    transition: transform 0.3s ease;
+    justify-content: center;
+    max-height: none;
+    overflow: visible;
   }
-  
+
   .profile-photo {
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 50%;
-    opacity: 0;
-    animation: zoomIn 1s ease forwards;
-    animation-delay: 1.6s;
+    width: 24em;
+    height: 24em;
+    object-fit: fill;
   }
-  
-  .about-content h2 span {
-    color: #01ECFF;
+}
+
+@media screen and (max-width: 400px) {
+  .about-section {
+    padding-top: 200px;
   }
-  
-  /* Animations (copy from App.css) */
-  @keyframes slideTop {
-    0% { transform: translateY(100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-  @keyframes slideRight {
-    0% { transform: translateX(-100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes slideBottom {
-    0% { transform: translateY(-100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-  }
-  @keyframes zoomIn {
-    0% { transform: scale(0); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-  
+}
+
+

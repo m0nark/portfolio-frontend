@@ -19,7 +19,7 @@ body {
 
 .header {
   position: fixed;
-  top: 0.6em; 
+  top: 0.6em;
   left: 50%;
   transform: translateX(-50%);
   background-color: #000;
@@ -66,12 +66,12 @@ body {
 }
 
 section {
-  scroll-margin-top: 100px; 
+  scroll-margin-top: 100px;
 }
 
 .skills-section-outer {
-  scroll-margin-top: 200px; 
-  max-height: 1250px;
+  scroll-margin-top: 200px;
+  max-height: 1150px;
 }
 
 .loading-overlay {
@@ -142,7 +142,8 @@ section {
   justify-content: center;
   min-height: 60vh;
   color: #fff;
-  background: none; /* transparent, or set a color if needed */
+  background: none;
+  /* transparent, or set a color if needed */
   text-align: center;
   font-size: 2rem;
   padding: 40px 20px;
@@ -151,23 +152,30 @@ section {
 }
 
 @keyframes fadeInError {
-  from { opacity: 0; transform: translateY(30px);}
-  to   { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .error-screen p {
   margin-bottom: 24px;
   font-size: 2.2rem;
-  color: #ff6b81; 
+  color: #ff6b81;
   font-weight: 600;
 }
 
 .error-image {
-  width: 480px;     
+  width: 480px;
   max-width: 90vw;
   margin-bottom: 32px;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
 
 .error-screen button {
@@ -180,7 +188,7 @@ section {
   color: #222;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 12px rgba(97,218,251,0.15);
+  box-shadow: 0 2px 12px rgba(97, 218, 251, 0.15);
 }
 
 .error-screen button:hover {
@@ -191,28 +199,61 @@ section {
 
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes slideTop {
-  0% { transform: translateY(100px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideRight {
-  0% { transform: translateX(-100px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideBottom {
-  0% { transform: translateY(-100px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes zoomIn {
-  0% { transform: scale(0); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 html.dark-mode img,
@@ -241,7 +282,139 @@ html.dark-mode .carousel-controls {
   filter: invert(100%) hue-rotate(0deg);
 }
 
-html.dark-mode .carousel-controls i{
+html.dark-mode .carousel-controls i {
   filter: invert(0%) hue-rotate(0deg);
 }
 
+/** MOBILE STYLES **/
+
+.burger-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.burger-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: 0.3s;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.mobile-navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.close-btn {
+  font-size: 39px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-dark-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.desktop-dark-toggle {
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+.desktop-navbar {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .desktop-navbar,
+  .desktop-dark-toggle {
+    display: none;
+  }
+
+  .burger-icon {
+    display: flex;
+    position: fixed;
+  }
+
+  .toggle-switch {
+    display: none;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .skills-section-outer {
+  max-height: 950px;
+}
+
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode .mobile-nav {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .mobile-navbar a {
+  color: #f0f0f0;
+}
+
+.dark-mode .burger-icon .bar {
+  background-color: #f0f0f0;
+}

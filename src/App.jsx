@@ -18,6 +18,7 @@ function App() {
     const [isReady, setIsReady] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
     const [darkMode, setDarkMode] = React.useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         fetch("https://api.aaditjain.in/api/v1/visitor/log", {
@@ -88,7 +89,7 @@ function App() {
         <div className={`app ${fadeOut ? 'fade-in' : ''}`}>
             <header className="header">
                 <a href="#about" className="logo"><img src={Logo} alt="Logo" className="Logo-img" /></a>
-                <nav className="navbar">
+                <nav className="navbar desktop-navbar">
                     <a href="#about" className="active">About</a>
                     <a href="#projects">Projects</a>
                     <a href="#skills" className="hover:text-blue-400 transition-colors duration-200">
@@ -99,13 +100,46 @@ function App() {
                 </nav>
             </header>
 
-            <DayNightToggle
-                checked={darkMode}
-                onChange={() => {
-                    setDarkMode(v => !v);
-                    document.documentElement.classList.toggle("dark-mode");
-                }}
-            />
+            <div className="burger-icon" onClick={() => setMenuOpen(!menuOpen)}>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                </div>
+
+            <div className={`mobile-nav ${menuOpen ? "open" : ""}`}>
+                <div className="mobile-nav-header">
+                    <button className="close-btn" onClick={() => setMenuOpen(false)}>×</button>
+                </div>
+                <nav className="mobile-navbar">
+                    <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+                    <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+                    <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
+                    <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
+                    <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+                </nav>
+                <div className="mobile-dark-toggle">
+                    <div style={{ maxWidth: '100%' }}>
+                        <DayNightToggle
+                            checked={darkMode}
+                            onChange={() => {
+                                setDarkMode(v => !v);
+                                document.documentElement.classList.toggle("dark-mode");
+                            }}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div className="desktop-dark-toggle">
+                <DayNightToggle
+                    checked={darkMode}
+                    onChange={() => {
+                        setDarkMode(v => !v);
+                        document.documentElement.classList.toggle("dark-mode");
+                    }}
+                />
+            </div>
+
 
             <section id="about">
                 <About scrollY={scrollY} />

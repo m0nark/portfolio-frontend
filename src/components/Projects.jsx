@@ -19,6 +19,14 @@ const Projects = () => {
         getRepos();
     }, []);
 
+    const getImagePath = (repoName) => {
+        return `/images/${repoName}.png`;
+    };
+
+    const handleImageError = (e) => {
+        e.target.src = '/images/default_no_repo_image.jpg';
+    };
+
     // Calculate card width when repos are loaded
     useEffect(() => {
         if (repos.length && carouselRef.current) {
@@ -234,7 +242,11 @@ const Projects = () => {
                             <h3>{repo.name}</h3>
 
                             <div className="project-image-area">
-                                <img src={repo.imageUrl} alt={`${repo.name} screenshot`} />
+                                <img 
+                                    src={getImagePath(repo.name)} 
+                                    alt={`${repo.name} screenshot`}
+                                    onError={handleImageError}
+                                />
                             </div>
 
                             <div className="project-footer">

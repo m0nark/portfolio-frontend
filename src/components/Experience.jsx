@@ -35,6 +35,9 @@ const Experience = () => {
     useEffect(() => {
         if (!experienceData.length) return;
 
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) return; // Skip observer setup entirely on mobile
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -112,7 +115,7 @@ const Experience = () => {
                                 const refIdx = cardIdx++;
                                 const isExpanded = expandedDescriptions[exp.id];
                                 const showDescription = hasDescription(exp.description);
-
+                                
                                 return (
                                     <div
                                         key={exp.id}
@@ -123,7 +126,7 @@ const Experience = () => {
                                         </div>
                                         <div className="experience-item">
                                             <div
-                                                className="experience-content fade-out"
+                                                className={`experience-content ${window.innerWidth > 768 ? 'fade-out' : 'visible'}`}
                                                 ref={el => contentRefs.current[refIdx] = el}
                                             >
                                                 <h3>{exp.title}</h3>
@@ -131,31 +134,31 @@ const Experience = () => {
                                                 <p className="location">{exp.location}</p>
                                                 <span className="duration">{exp.fromDate} - {exp.toDate}</span>
                                                 {exp.grade && <h5>{exp.grade}</h5>}
-
+                                                
                                                 {/* Description toggle button and content */}
                                                 {showDescription && (
                                                     <div className="description-section">
-                                                        <button
+                                                        <button 
                                                             className="description-toggle-btn"
                                                             onClick={() => toggleDescription(exp.id)}
                                                             aria-expanded={isExpanded}
                                                             aria-label={isExpanded ? "Collapse description" : "Expand description"}
                                                         >
-                                                            <i className={`ri-${isExpanded ? 'arrow-up' : 'arrow-down'}-s-line`}></i>
+                                                            <i className={`ri-arrow-${isExpanded ? 'up' : 'down'}-s-line`}></i>
                                                         </button>
-
+                                                        
                                                         {isExpanded && (
                                                             <div className="description-content">
                                                                 <p
                                                                     dangerouslySetInnerHTML={{
-                                                                        __html: exp.description.replace(/\\n/g, '<br />') // Note: DOUBLE BACKSLASH!
+                                                                        __html: exp.description.replace(/\\n/g, '<br />')
                                                                     }}
                                                                 ></p>
                                                             </div>
                                                         )}
                                                     </div>
                                                 )}
-
+                                                
                                                 {/* Tech stack - always displayed if available */}
                                                 {Array.isArray(exp.techStack) && exp.techStack.length > 0 && (
                                                     <div className="tech-stack">
@@ -166,7 +169,7 @@ const Experience = () => {
                                                                 href={`https://www.google.com/search?q=${encodeURIComponent(tech)}`}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
-                                                                title={`${tech}`}
+                                                                title={tech}
                                                             >
                                                                 <i className={`${getIconForTech(tech)} tech-icon`}></i>
                                                                 <span className="tech-name">{tech}</span>
@@ -186,14 +189,6 @@ const Experience = () => {
         </div>
     );
 };
-
-function groupByType(data) {
-    return data.reduce((acc, item) => {
-        acc[item.type] = acc[item.type] || [];
-        acc[item.type].push(item);
-        return acc;
-    }, {});
-}
 
 function getIconForTech(techName) {
     const normalizedTech = techName.toLowerCase();
