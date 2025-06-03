@@ -100,14 +100,15 @@ function App() {
                 </nav>
             </header>
 
-            <div className="burger-icon" onClick={() => setMenuOpen(!menuOpen)}>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                </div>
+            <div className={`burger-icon ${menuOpen ? "hidden" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
+            </div>
 
             <div className={`mobile-nav ${menuOpen ? "open" : ""}`}>
                 <div className="mobile-nav-header">
+                    <a href="#about" className="logo-mobile"><img src={Logo} alt="Logo" className="Logo-img" /></a>
                     <button className="close-btn" onClick={() => setMenuOpen(false)}>×</button>
                 </div>
                 <nav className="mobile-navbar">

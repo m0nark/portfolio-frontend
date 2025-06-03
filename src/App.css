@@ -300,7 +300,7 @@ html.dark-mode .carousel-controls i {
 .burger-icon .bar {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background-color: silver;
   transition: 0.3s;
 }
 
@@ -376,6 +376,10 @@ html.dark-mode .carousel-controls i {
   gap: 20px;
 }
 
+.burger-icon.hidden {
+  display: none;
+}
+
 @media (max-width: 768px) {
 
   .desktop-navbar,
@@ -383,9 +387,12 @@ html.dark-mode .carousel-controls i {
     display: none;
   }
 
-  .burger-icon {
+   .burger-icon {
     display: flex;
     position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
   }
 
   .toggle-switch {
@@ -397,8 +404,12 @@ html.dark-mode .carousel-controls i {
   }
 
   .skills-section-outer {
-  max-height: 950px;
-}
+    max-height: 950px;
+  }
+
+  .logo-mobile img {
+    filter: invert(100%) hue-rotate(0deg);
+  }
 
 }
 
