@@ -105,7 +105,7 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    top: 40px;
+    top: 35px;
     color: #888888;
     font-weight: 500;
     font-size: 22.4px;
@@ -120,16 +120,16 @@
 .experience-content h3 {
     margin: 0 0 12px;
     color: #fff;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     letter-spacing: 0.05em;
     font-weight: 600;
 }
 
 .experience-content h5 {
-    font-family: 'Lato', sans-serif;
     margin: 8px 0;
     color: #56ECF9;
     font-size: 1.5rem;
+    letter-spacing: 0.06em;
     font-style: italic;
     font-weight: 900;
     right: 20px;
@@ -194,7 +194,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     transition: all 0.3s ease;
 }
 
@@ -493,7 +493,7 @@
     }
 
     .tech-item i {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .tech-item::after {
