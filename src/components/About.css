@@ -232,8 +232,9 @@
   }
 
   .about-content h2 {
-    font-size: 3.3vh;
+    font-size: 3.0vh;
     animation: slideRight 1s ease forwards;
+    letter-spacing: 0.05em;
   }
 
   .about-content h2:nth-of-type(2) {
