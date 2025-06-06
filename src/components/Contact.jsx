@@ -58,6 +58,7 @@ const Contact = () => {
                 onClose={() => setToast({ message: "" })}
             />
             <h2>Contact Me</h2>
+            <h2>Hit me up! I promise I don't bite XD.</h2>
             <form className="contact-form" onSubmit={handleSubmit} autoComplete="off">
                 <div className="contact-form-columns">
                     <div className="contact-form-fields">

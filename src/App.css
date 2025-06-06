@@ -380,6 +380,140 @@ html.dark-mode .carousel-controls i {
   display: none;
 }
 
+/* SCROLLBAR STYLES */
+
+/* Vertical scrollbar for html and body */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+body::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #01ECFF;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #01ECFF;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #217dbb;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #217dbb;
+}
+
+/* Horizontal scrollbar for elements with horizontal scrolling */
+*::-webkit-scrollbar:horizontal {
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track:horizontal {
+  background: #000000;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:horizontal {
+  background: #01ECFF;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #217dbb;
+}
+
+/* Remove scrollbar arrows */
+*::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+  visibility: collapse !important;
+}
+
+/* Firefox scrollbar */
+html, body {
+  scrollbar-width: thin;
+  scrollbar-color: #01ECFF #000000;
+}
+
+/* Dark mode scrollbar styles */
+html.dark-mode::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+html.dark-mode::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border: 2px solid #000000;
+}
+
+html.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Dark mode horizontal scrollbar */
+html.dark-mode *::-webkit-scrollbar-track:horizontal {
+  background: #f1f1f1;
+}
+
+html.dark-mode *::-webkit-scrollbar-thumb:horizontal {
+  background: #333333;
+  border: 2px solid #000000;
+}
+
+html.dark-mode *::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #555555;
+}
+
+/* Firefox scrollbar for dark mode */
+html.dark-mode,
+html.dark-mode body {
+  scrollbar-color: #333333 #ffffff;
+}
+
+/* Hide scrollbar for specific carousel sections */
+.project-carousel,
+.carousel-container,
+[class*="carousel"] {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.project-carousel::-webkit-scrollbar,
+.carousel-container::-webkit-scrollbar,
+[class*="carousel"]::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 @media (max-width: 768px) {
 
   .desktop-navbar,
@@ -393,6 +527,11 @@ html.dark-mode .carousel-controls i {
     top: 20px;
     right: 20px;
     z-index: 1001;
+    transition: opacity 0.3s ease; /* Optional: smooth transition */
+  }
+
+  .burger-icon.hidden {
+    display: none;
   }
 
   .toggle-switch {
