@@ -6,7 +6,7 @@ const Footer = () => (
     <div className="footer-content">
       <div className="footer-brand">
         <a href='#about' className="footer-logo">M0NARK</a>
-        <p className="footer-tagline">Building the future, one line at a time.</p>
+        <p className="footer-tagline">Turning ‘uh-oh’ into ‘aha!’ since the start of 21st Century.</p>
       </div>
     
       <div className="footer-social">

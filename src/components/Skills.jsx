@@ -97,11 +97,13 @@ const Skills = () => {
             <h3 className="skills-category-title">{category}</h3>
             <div className="skills-list">
               {skillList.map((skill, skillIndex) => (
-                <div
+                <a
                   key={skill.name}
-                  className={`skill-item ${visibleCategories.includes(category) ? 'slide-in' : 'hidden'
-                    }`}
-                  title={skill.name}
+                  className={`skill-item ${visibleCategories.includes(category) ? 'slide-in' : 'hidden'}`}
+                  href={`https://www.google.com/search?q=${encodeURIComponent(skill.name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`Search "${skill.name}" on Google`}
                   style={
                     !hasAnimated && visibleCategories.includes(category)
                       ? { transitionDelay: `${skillIndex * 175}ms` }
@@ -110,7 +112,7 @@ const Skills = () => {
                 >
                   <i className={`${skill.icon} skill-icon`}></i>
                   <span className="skill-name">{skill.name}</span>
-                </div>
+                </a>
               ))}
             </div>
           </div>

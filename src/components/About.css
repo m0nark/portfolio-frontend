@@ -53,11 +53,11 @@
   font-size: 20px;
   opacity: 0;
   letter-spacing: 0.05em;
-  font-style: italic;
+  font-family: 'Russo One', sans-serif;
   font-weight: 400;
   animation: slideBottom 1s ease forwards;
   animation-delay: 1s;
-  margin-bottom: 1.2em;
+  margin-bottom: 1.5em;
   color: silver;
 }
 
@@ -215,11 +215,11 @@
     flex-direction: column;
     align-items: center;
     padding: 30px 20px 0;
-    padding-top: 100px;
-    gap: 40px;
+    padding-top: 20px;
   }
 
   .about-content {
+    flex : none;
     font-size: 100%;
     align-items: center;
     text-align: center;
@@ -242,8 +242,7 @@
   }
 
   .about-content h3 {
-    font-size: 0.9em;
-    padding: 0 10px;
+    display: none;
   }
 
   .btn-download-resume {
@@ -253,7 +252,7 @@
 
   .about-content .download-social {
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
   }
 
   .about-content .social-icons {
@@ -266,6 +265,7 @@
   }
 
   .about-img {
+    top: -25px;
     justify-content: center;
     max-height: none;
     overflow: visible;
@@ -280,7 +280,7 @@
 
 @media screen and (max-width: 400px) {
   .about-section {
-    padding-top: 200px;
+    padding-top: 50px;
   }
 }
 

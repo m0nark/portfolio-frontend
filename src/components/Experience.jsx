@@ -130,8 +130,8 @@ const Experience = () => {
                                                 ref={el => contentRefs.current[refIdx] = el}
                                             >
                                                 <h3>{exp.title}</h3>
-                                                <p>{exp.institution}{'\u00A0'}-{'\u00A0'}</p>
-                                                <p className="location">{exp.location}</p>
+                                                <span className='exp-institution'>{exp.institution}{'\u00A0'}-{'\u00A0'}</span>
+                                                <span className="location">{exp.location}</span>
                                                 <span className="duration">{exp.fromDate} - {exp.toDate}</span>
                                                 {exp.grade && <h5>{exp.grade}</h5>}
                                                 

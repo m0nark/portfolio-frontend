@@ -59,6 +59,8 @@
     transform: translateX(50px);
     transition: transform 0.6s ease, opacity 0.6s ease;
     will-change: transform;
+    text-decoration: none;
+    color: inherit;
 }
 
 .skill-item:hover {
@@ -80,7 +82,7 @@
 
 .skill-item.slide-in:hover {
     transform: scale(1.1);
-  }
+}
 
 .skill-item.hidden {
     visibility: hidden;
@@ -97,44 +99,44 @@
 }
 
 @media (max-width: 768px) {
-  .skills-section {
-    padding: 2rem 1rem;
-    margin-top: 10px;
-  }
+    .skills-section {
+        padding: 2rem 1rem;
+        margin-top: 10px;
+    }
 
-  .skills-title {
-    font-size: 2.2rem;
-  }
+    .skills-title {
+        font-size: 2.2rem;
+    }
 
-  .skills-category-title {
-    font-size: 1.2rem;
-  }
+    .skills-category-title {
+        font-size: 1.2rem;
+    }
 
-  .skills-list {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 4px;
-    overflow: hidden;
-    width: 100%;
-  }
+    .skills-list {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 4px;
+        overflow: hidden;
+        width: 100%;
+    }
 
-  .skill-item {
-    flex: 1 1 150px;
-    min-width: 0;
-    max-width: none;
-    height: 80px;
-    padding: 0.5rem;
-    font-size: 0.75rem;
-  }
+    .skill-item {
+        flex: 1 1 150px;
+        min-width: 0;
+        max-width: none;
+        height: 80px;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
 
-  .skill-icon {
-    font-size: 1.8rem;
-  }
+    .skill-icon {
+        font-size: 1.8rem;
+    }
 
-  .skill-name {
-    font-size: 0.75rem;
-  }
+    .skill-name {
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 400px) {

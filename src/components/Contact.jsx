@@ -50,78 +50,80 @@ const Contact = () => {
 
 
     return (
-        <section className="contact-section" id="contact">
-            <Toast
-                message={toast.message}
-                type={toast.type}
-                gif={toast.gif}
-                onClose={() => setToast({ message: "" })}
-            />
-            <h2>Contact Me</h2>
-            <h2>Hit me up! I promise I don't bite XD.</h2>
-            <form className="contact-form" onSubmit={handleSubmit} autoComplete="off">
-                <div className="contact-form-columns">
-                    <div className="contact-form-fields">
-                        <div className="input-group">
-                            <input
-                                type="text"
-                                name="firstName"
-                                placeholder="First Name"
-                                value={form.firstName}
+        <div className="contact-outer-container">
+            <section className="contact-section" id="contact">
+                <Toast
+                    message={toast.message}
+                    type={toast.type}
+                    gif={toast.gif}
+                    onClose={() => setToast({ message: "" })}
+                />
+                <h2>Contact Me</h2>
+                <h2>Hit me up! I promise I don't bite XD.</h2>
+                <form className="contact-form" onSubmit={handleSubmit} autoComplete="off">
+                    <div className="contact-form-columns">
+                        <div className="contact-form-fields">
+                            <div className="input-group">
+                                <input
+                                    type="text"
+                                    name="firstName"
+                                    placeholder="First Name"
+                                    value={form.firstName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <input
+                                    type="text"
+                                    name="lastName"
+                                    placeholder="Last Name"
+                                    value={form.lastName}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="input-group">
+                                <input
+                                    type="tel"
+                                    name="phoneNumber"
+                                    placeholder="Phone Number"
+                                    value={form.phoneNumber}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
+                        <div className="contact-form-message">
+
+                            <textarea
+                                name="message"
+                                placeholder="Your message..."
+                                value={form.message}
                                 onChange={handleChange}
                                 required
+                                maxLength={MAX_MESSAGE_LENGTH}
                             />
-                        </div>
-                        <div className="input-group">
-                            <input
-                                type="text"
-                                name="lastName"
-                                placeholder="Last Name"
-                                value={form.lastName}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="input-group">
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                value={form.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="input-group">
-                            <input
-                                type="tel"
-                                name="phoneNumber"
-                                placeholder="Phone Number"
-                                value={form.phoneNumber}
-                                onChange={handleChange}
-                            />
+                            <div className="char-counter">
+                                {form.message.length}/{MAX_MESSAGE_LENGTH}
+                            </div>
                         </div>
                     </div>
-                    <div className="contact-form-message">
-                        
-                        <textarea
-                            name="message"
-                            placeholder="Your message..."
-                            value={form.message}
-                            onChange={handleChange}
-                            required
-                            maxLength={MAX_MESSAGE_LENGTH}
-                        />
-                        <div className="char-counter">
-                            {form.message.length}/{MAX_MESSAGE_LENGTH}
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" disabled={status.loading}>
-                    {status.loading ? "Sending..." : "Send Message"}
-                </button>
-            </form>
-        </section>
+                    <button type="submit" disabled={status.loading}>
+                        {status.loading ? "Sending..." : "Send Message"}
+                    </button>
+                </form>
+            </section>
+        </div>
     );
 };
 

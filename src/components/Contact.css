@@ -1,11 +1,16 @@
 .contact-section {
-  padding: 60px 0;
+  padding: 60px 0px;
   background: #000;
   border-radius: 30px;
   max-width: 1800px;
   margin: 60px auto;
   color: #f8f9fa;
   box-shadow: 0 10px 40px rgba(0,0,0,0.22);
+  border: 2px solid #01ECFF;
+}
+
+.contact-outer-container{
+  padding: 0 20px;
 }
 
 .contact-section h2 {
@@ -127,6 +132,7 @@
 @media (max-width: 1100px) {
   .contact-section {
   padding: 10px 5%;
+  border: none;
   }
   .contact-form-columns {
     flex-direction: column;
@@ -136,12 +142,17 @@
   .contact-form-message {
     padding: 24px 12px;
   }
+
+  .contact-outer-container{
+    padding: 0px;
+  }
 }
 
 @media (max-width: 600px) {
   .contact-section {
     padding: 30px 5px;
     border-radius: 16px;
+    border: none;
   }
   .contact-form {
     gap: 10px;
@@ -150,5 +161,9 @@
   .contact-form-message {
     padding: 14px 4px;
     border-radius: 10px;
+  }
+
+  .contact-outer-container{
+    padding: 0px;
   }
 }

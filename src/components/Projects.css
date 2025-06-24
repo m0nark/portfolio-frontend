@@ -183,7 +183,7 @@
 .btn-view-repo {
   display: inline-block;
   padding: 8px 18px;
-  background: #ffffff;
+  background: #000000;
   border: 2px solid #ffffff;
   border-radius: 40px;
   color: #333;
@@ -196,7 +196,7 @@
 .btn-view-repo:hover {
   background: none;
   color: #ffffff;
-  box-shadow: none;
+  box-shadow: 0 0 10px #ffffff;
 }
 
 @media screen and (max-width: 768px) {

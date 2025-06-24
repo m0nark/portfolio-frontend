@@ -49,7 +49,7 @@
 
 .timeline-marker {
     position: absolute;
-    left: -73px;
+    left: -70px;
     top: 15px;
     width: 50px;
     height: 50px;
@@ -128,24 +128,32 @@
 .experience-content h5 {
     margin: 8px 0;
     color: #56ECF9;
-    font-size: 1.5rem;
-    letter-spacing: 0.06em;
+    font-size: 1.2rem;
     font-style: italic;
-    font-weight: 900;
     right: 20px;
     position: absolute;
     top: 70px;
 }
 
 .highlighted2 {
+    font-family: 'Russo One', sans-serif;
     color: #56ECF9;
+}
+
+.highlighted {
+    font-family: 'Russo One', sans-serif;
+}
+
+.exp-institution{
+    color: #3498db;
+    font-weight: 500;
+    font-size: 1.4rem;
 }
 
 .experience-content p {
     margin: 8px 0;
     color: #ffffff;
     line-height: 1.6;
-    font-size: 1.3rem;
     letter-spacing: 0.03em;
     display: inline-block;
     font-style: italic;
@@ -158,9 +166,10 @@
 }
 
 .experience-content p:nth-of-type(1) {
+    font-family: 'Russo One', sans-serif;
     font-style: italic;
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-weight: 200;
+    font-size: 0.97rem;
 }
 
 .tech-stack {
@@ -220,7 +229,7 @@
     color: #a0a4b2;
     font-style: italic;
     margin: 4px 0 8px 0;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .tech-name {
@@ -356,16 +365,16 @@
     justify-content: center;
     gap: 8px;
     background: #262A35;
-    border: none;
-    border-radius: 50%;
+    border: 2px solid #3498db;
+    border-radius: 14px;
     padding: 10px 16px;
     color: #3498db;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     margin: 0 auto 12px;
-    outline: none; /* Remove focus outline */
-    box-shadow: none; /* Remove any box shadow */
+    outline: none;
+    box-shadow: none;
     letter-spacing: 0.02em;
     font-size: 0.9rem;
 }
@@ -378,7 +387,8 @@
 .description-toggle-btn:active {
     outline: none;
     box-shadow: none;
-    transform: translateY(0); /* Prevent jump on click */
+    transform: translateY(0);
+    /* Prevent jump on click */
 }
 
 .description-toggle-btn:hover::after {
@@ -472,16 +482,17 @@
 
     .duration {
         font-size: 0.95rem;
-        top: 14px;
+        top: 24px;
         right: 14px;
     }
 
     .experience-content p:nth-of-type(1) {
+
+        font-weight: 300;
         font-size: 0.9rem;
         line-height: 1.2;
     }
 
-    /* tech stack row */
     .tech-stack {
         gap: 8px;
         margin-top: 16px;
@@ -540,11 +551,19 @@
     }
 
     .experience-content h3 {
-        font-size: 1.15rem;
+        font-size: 1.4rem;
+    }
+
+    .exp-institution{
+        font-size: 1.1em;
+    }
+
+    .location {
+        font-size: 1.1rem;
     }
 
     .experience-content h5 {
-        font-size: 0.9rem;
+        font-size: 1rem;
         top: 52px;
     }
 
@@ -567,6 +586,7 @@
     .description-toggle-btn {
         padding: 6px 10px;
         font-size: 0.75rem;
+        border: none;
     }
 }
 
@@ -608,46 +628,55 @@
 
 @media (max-width: 768px) {
 
-  /* shrink padding & let card grow */
-  .experience-box-education .experience-content {
-    padding: 16px 14px 18px;
-    overflow: visible;
-  }
+    /* shrink padding & let card grow */
+    .experience-box-education .experience-content {
+        padding: 16px 14px 18px;
+        overflow: visible;
+    }
 
-  /* title a bit smaller on phones */
-  .experience-box-education .experience-content h3 {
-    font-size: 1.2rem;
-    line-height: 1.3;
-  }
+    /* title a bit smaller on phones */
+    .experience-box-education .experience-content h3 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
 
-  /* move CGPA / Percentage line into normal flow  */
-  .experience-box-education .experience-content h5 {
-    position: static;          /* no absolute overlap */
-    margin-top: 2px;
-    font-size: 0.95rem;
-    line-height: 1.2;
-    text-align: left;
-    color: #56ECF9;
-    font-style: italic;        /* keep the look */
-    font-weight: 800;
-  }
+    /* move CGPA / Percentage line into normal flow  */
+    .experience-box-education .experience-content h5 {
+        position: static;
+        /* no absolute overlap */
+        margin-top: 2px;
+        font-size: 0.95rem;
+        line-height: 1.2;
+        text-align: left;
+        color: #56ECF9;
+        font-style: italic;
+        /* keep the look */
+        font-weight: 800;
+    }
 
-  /* tighten the first info line (institution-location) */
-  .experience-box-education .experience-content p:nth-of-type(1),
-  .experience-box-education .experience-content .location {
-    font-size: 0.82rem;
-    line-height: 1.1;
-  }
+    /* tighten the first info line (institution-location) */
+    .experience-box-education .experience-content p:nth-of-type(1),
+    .experience-box-education .experience-content .location {
+        font-size: 0.82rem;
+        line-height: 1.1;
+    }
 
-  /* ensure the tech-stack row still wraps nicely */
-  .experience-box-education .tech-stack {
-    gap: 6px;
-    margin-top: 14px;
-  }
+    /* ensure the tech-stack row still wraps nicely */
+    .experience-box-education .tech-stack {
+        gap: 6px;
+        margin-top: 14px;
+    }
 }
 
 /* tiny phones (≤ 480 px) – slight further scale-down */
 @media (max-width: 480px) {
-  .experience-box-education .experience-content h3 { font-size: 1.05rem; }
-  .experience-box-education .experience-content h5 { font-size: 0.85rem; }
+    .experience-box-education .experience-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .experience-box-education .experience-content h5 {
+        font-size: 1rem;
+        font-style: normal;
+        letter-spacing: 0.04em;
+    }
 }

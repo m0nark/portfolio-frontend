@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import DayNightToggle from "./components/DayNightToggle";
 import GoToTopButton from "./components/GoToTopButton";
+import LogoDialog from "./components/LogoDialog";
 
 function App() {
 
@@ -86,9 +87,12 @@ function App() {
     }
 
     return (
+
         <div className={`app ${fadeOut ? 'fade-in' : ''}`}>
             <header className="header">
-                <a href="#about" className="logo"><img src={Logo} alt="Logo" className="Logo-img" /></a>
+                <div className="logo" onClick={(e) => e.stopPropagation()}>
+                    <LogoDialog logoSrc={Logo} />
+                </div>
                 <nav className="navbar desktop-navbar">
                     <a href="#about" className="active">About</a>
                     <a href="#projects">Projects</a>
@@ -99,11 +103,21 @@ function App() {
                     <a href="#contact">Contact</a>
                 </nav>
             </header>
+            <div className={`header-mobile ${menuOpen ? "hidden" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+                <div className={`burger-icon ${menuOpen ? "hidden" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                    <div className="bar"></div>
+                </div>
 
-            <div className={`burger-icon ${menuOpen ? "hidden" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
-                <div className="bar"></div>
-                <div className="bar"></div>
-                <div className="bar"></div>
+                {!menuOpen && (
+                    <div
+                        className="mobile-top-logo"
+                        onClick={(e) => e.stopPropagation()} // Prevents click from reaching parent
+                    >
+                        <LogoDialog logoSrc={Logo} />
+                    </div>
+                )}
             </div>
 
             <div className={`mobile-nav ${menuOpen ? "open" : ""}`}>

@@ -54,7 +54,7 @@ body {
   margin-left: 30px;
   text-decoration: none;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 1.6em;
   border-bottom: 2px solid transparent;
   transition: 0.5s;
   font-weight: 500;
@@ -143,7 +143,6 @@ section {
   min-height: 60vh;
   color: #fff;
   background: none;
-  /* transparent, or set a color if needed */
   text-align: center;
   font-size: 2rem;
   padding: 40px 20px;
@@ -192,8 +191,8 @@ section {
 }
 
 .error-screen button:hover {
-  background: #21a1f3;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
 }
 
 
@@ -524,7 +523,7 @@ html.dark-mode body {
    .burger-icon {
     display: flex;
     position: fixed;
-    top: 20px;
+    top: 45px;
     right: 20px;
     z-index: 1001;
     transition: opacity 0.3s ease; /* Optional: smooth transition */
@@ -567,4 +566,35 @@ html.dark-mode body {
 
 .dark-mode .burger-icon .bar {
   background-color: #f0f0f0;
+}
+
+.mobile-top-logo {
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  display: none;
+}
+
+.dark-mode .mobile-top-logo {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+.dark-mode .logo {
+  filter: invert(100%) hue-rotate(0deg);
+}
+
+.mobile-top-logo .Logo-img {
+  height: auto;
+  width: 50px;
+}
+
+.header-mobile {
+  padding : 1em;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .mobile-top-logo {
+    display: block;
+  }
 }
