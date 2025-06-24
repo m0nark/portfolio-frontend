@@ -19,7 +19,7 @@ const LogoDialog = ({ logoSrc }) => {
                     toggleDialog();
                 }}
                 animate={{
-                    y: [0, -10, 0],
+                    y: [5, -15, 0],
                 }}
                 transition={{
                     duration: 1.5,
