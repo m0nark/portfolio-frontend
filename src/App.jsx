@@ -20,6 +20,18 @@ function App() {
     const [fadeOut, setFadeOut] = useState(false);
     const [darkMode, setDarkMode] = React.useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showLoadingMessage, setShowLoadingMessage] = useState(false);
+
+
+    useEffect(() => {
+        if (!isReady && isVerified !== false) {
+            const timer = setTimeout(() => {
+                setShowLoadingMessage(true);
+            }, 5070);
+            return () => clearTimeout(timer);
+        }
+    }, [isReady, isVerified]);
+
 
     useEffect(() => {
         fetch("https://api.aaditjain.in/api/v1/visitor/log", {
@@ -81,6 +93,11 @@ function App() {
             <div className={`loading-overlay ${fadeOut ? 'fade-out' : ''}`}>
                 <div className="loading-text">
                     <div className="spinner" />
+                    {showLoadingMessage && (
+                        <div className="loading-delay-message">
+                            Sometimes it takes time to load the website since this is being hosted on a non-paid server. PLease wait for a minute or so.
+                        </div>
+                    )}
                 </div>
             </div>
         );

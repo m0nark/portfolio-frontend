@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./GoToToButton.css";
+import "./GoToTopButton.css";
 
 const GoToTopButton = () => {
   const [visible, setVisible] = useState(false);
@@ -22,7 +22,6 @@ const GoToTopButton = () => {
       onClick={handleClick}
       aria-label="Go to top"
     >
-      {/* Up arrow SVG icon */}
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
         <path d="M12 19V5M12 5L5 12M12 5l7 7" stroke="#01ECFF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
