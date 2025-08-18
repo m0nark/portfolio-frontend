@@ -19,10 +19,10 @@ const LogoDialog = ({ logoSrc }) => {
                     toggleDialog();
                 }}
                 animate={{
-                    y: [5, -15, 0],
+                    y: [5, -8, 5],
                 }}
                 transition={{
-                    duration: 1.5,
+                    duration: 1.25,
                     repeat: Infinity,
                     repeatType: "loop",
                     ease: "easeInOut"
@@ -42,16 +42,16 @@ const LogoDialog = ({ logoSrc }) => {
                             <motion.div
                                 className="dialog-box"
                                 onClick={(e) => e.stopPropagation()}
-                                initial={{ rotateY: 0, scale: 0.4 }}
+                                initial={{ rotateY: 0, scale: 0.3 }}
                                 animate={{
-                                    rotateY: [0, 180, 360, 540, 720],
+                                    rotateY: [0, 180, 360],
                                     scale: 1,
                                     transition: {
-                                        duration: 1.5,
+                                        duration: 0.8,
                                         ease: "easeInOut",
                                     },
                                 }}
-                                exit={{ opacity: 0, scale: 0.5 }}
+                                exit={{ opacity: 0, scale: 0.7 }}
                             >
                                 <button
                                     className="dialog-close-btn"
