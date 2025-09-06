@@ -34,8 +34,17 @@ function App() {
 
 
     useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const fbclid = params.get("fbclid");
+
         fetch("https://api.aaditjain.in/api/v1/visitor/log", {
             method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fromInstagram: !!fbclid,
+            }),
         })
             .then(async (res) => {
                 const data = await res.json();
