@@ -37,7 +37,7 @@ const About = ({ scrollY }) => {
                     <h3> Passionate software engineer who loves the challenge of learning new technologies and using them to create meaningful impact.
                         I harbor a deep love for mathematics and technology, constantly seeking ways to bridge theoretical concepts with practical applications.</h3>
                     <div className="download-social">
-                        <a href="#" className="btn-download-resume">
+                        <a href="/Aadit_Resume_V7.pdf" className="btn-download-resume" target="_blank" rel="noopener noreferrer">
                             Download Resume
                         </a>
                         <div className="social-icons">
