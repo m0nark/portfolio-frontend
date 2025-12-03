@@ -35,30 +35,40 @@ function App() {
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
-        const fbclid = params.get("fbclid");
 
-        fetch("https://api.aaditjain.in/api/v1/visitor/log", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                fromInstagram: !!fbclid,
-            }),
-        })
-            .then(async (res) => {
-                const data = await res.json();
+        // Read raw value from URL (case preserved or normalized — your choice)
+        let requestFrom = params.get("requestFrom");
+
+        // Default to UNKNOWN if nothing provided
+        if (!requestFrom) {
+            requestFrom = "UNKNOWN";
+        }
+
+        (async () => {
+            try {
+                const res = await fetch("https://api.aaditjain.in/api/v1/visitor/log", {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ requestFrom }),
+                });
+
+                const data = await res.json().catch(() => ({}));
                 if (!res.ok) {
                     throw new Error(data.message || `API error: ${res.status}`);
                 }
+
                 setIsVerified(true);
-            })
-            .catch((err) => {
+            } catch (err) {
                 console.error("API Error:", err);
                 setErrorMsg(err.message);
                 setIsVerified(false);
-            });
+            }
+        })();
     }, []);
+
+
 
     useEffect(() => {
         if (isVerified) {
